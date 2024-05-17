@@ -43,6 +43,12 @@
                 <mxCell id="68" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#000000;" parent="69" vertex="1">
                     <mxGeometry x="5.003636363636363" y="5" width="30" height="30" as="geometry"/>
                 </mxCell>
+                <mxCell id="108" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="48" source="106" target="64">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="106" value="感情分析AIから得た返答結果を&lt;br&gt;出力する" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="48">
+                    <mxGeometry x="30" y="270" width="200" height="40" as="geometry"/>
+                </mxCell>
                 <mxCell id="62" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;rounded=0;" parent="42" source="50" target="51" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="440" y="180.0000000000001" as="targetPoint"/>
@@ -62,6 +68,9 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="105" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="42" source="51" target="100" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="107" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;rounded=0;" edge="1" parent="42" source="100" target="106">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
             </root>
