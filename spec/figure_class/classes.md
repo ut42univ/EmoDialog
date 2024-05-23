@@ -42,6 +42,7 @@
 --------------------------------------------------------------
 属性:
 - analysisId: int
+- responce: string
 - emotion: string
 - emotion_degree: 浮動小数点数
 - date: date

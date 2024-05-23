@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>日記一覧</h2>
+
+{% for diary in diaries %}
+<article>
+    <a href="/diaries/{{ diary.id }}/edit">編集</a>
+    <a href="/diaries/{{ diary.id }}/delete">削除</a>
+    <p>作成日</p>
+    <p>{{ diary.created_at }}</p>
+    <p>更新日</p>
+    <p>{{ diary.updated_at }}</p>
+    <p>内容</p>
+    {% if diary.body != "" %}
+        <p>{{ diary.body }}</p>
+    {% else %}
+        <p>内容がありません</p>
+    {% endif %}
+
+</article>
+<br>--------------------------------</br>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container mt-4">
+    <h2>日記を記録する</h2>
+    <form action="/create_diary" method="POST">
+        <label for="body">日記の内容</label>
+        <textarea name="body" rows="5"></textarea>
+
+        <input type="submit" value="記録する">
+    </form>
+</div>
+
+{% endblock %}

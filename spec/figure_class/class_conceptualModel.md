@@ -24,6 +24,7 @@ classDiagram
     }
     class AnalysisResult {
         - analysisId: int
+        - responce: string
         - emotion: string
         - emotion_degree: float
         - date: date
