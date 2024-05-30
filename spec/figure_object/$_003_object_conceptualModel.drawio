@@ -1,0 +1,96 @@
+<mxfile host="65bd71144e" scale="5" border="10">
+    <diagram id="6NRBU0wVSXhq6vlPgpqr" name="ページ1">
+        <mxGraphModel dx="1553" dy="1088" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#ffffff" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="80" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;rounded=0;endArrow=none;endFill=0;" edge="1" parent="1" source="6" target="79">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;text-decoration:underline;&quot;&gt;&lt;b&gt;user1 : User&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;userId = 1&lt;br&gt;userName = &quot;John&quot;&lt;br&gt;password = &quot;password&quot;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="45" y="156.5" width="160" height="87" as="geometry"/>
+                </mxCell>
+                <mxCell id="43" value="&lt;h1&gt;シナリオ ($_003)&lt;/h1&gt;&lt;p&gt;Userである&quot;John&quot;は今まで自分が記録した日記（シナリオ$_001）の感情分析結果を閲覧する．&lt;/p&gt;" style="text;html=1;strokeColor=default;fillColor=#F2F2F2;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;strokeWidth=2;gradientColor=none;fillStyle=auto;" parent="1" vertex="1">
+                    <mxGeometry x="20" y="10" width="530" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="71" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=-0.002;entryY=0.265;entryDx=0;entryDy=0;endArrow=none;endFill=0;entryPerimeter=0;" parent="1" target="54" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="455" y="280"/>
+                            <mxPoint x="310" y="280"/>
+                            <mxPoint x="310" y="780"/>
+                            <mxPoint x="419" y="780"/>
+                        </Array>
+                        <mxPoint x="455" y="275" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="73" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;" parent="1" target="50" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="745" y="320"/>
+                            <mxPoint x="860" y="320"/>
+                            <mxPoint x="860" y="590"/>
+                            <mxPoint x="780" y="590"/>
+                        </Array>
+                        <mxPoint x="745" y="317.5" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="74" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.999;entryY=0.156;entryDx=0;entryDy=0;endArrow=none;endFill=0;entryPerimeter=0;" parent="1" target="58" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="745" y="280"/>
+                            <mxPoint x="940" y="280"/>
+                            <mxPoint x="940" y="960"/>
+                            <mxPoint x="780" y="960"/>
+                        </Array>
+                        <mxPoint x="745" y="275" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="75" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;" parent="1" target="46" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="455" y="310"/>
+                            <mxPoint x="360" y="310"/>
+                            <mxPoint x="360" y="410"/>
+                            <mxPoint x="420" y="410"/>
+                        </Array>
+                        <mxPoint x="455" y="275" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="77" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;text-decoration:underline;&quot;&gt;&lt;b&gt;Analysis1 : AnalysisResult&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;analysisId = 501&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;diaryId = 101&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;responce: &quot;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;&lt;/span&gt;天気がいいと気分も晴れますね．&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;&lt;/span&gt;明日も晴れるといいですね！&quot;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;emotion: &quot;happy&quot;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;emotion_degree: 1.0&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;date: 2024-04-01&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="735" y="120" width="390" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="78" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;text-decoration:underline;&quot;&gt;&lt;b&gt;Analysis7 : AnalysisResult&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;analysisId = 509&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;diaryId = 107&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;responce: &quot;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;ミス&lt;/span&gt;をしてしまうと，落ち込んでしまいますよね．&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;失敗も経験のうちです．明日は切り替えていきましょう！&quot;&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;emotion: &quot;sad&quot;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;emotion_degree: 0.3&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;date: 2024-04-12&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="735" y="303" width="390" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="81" style="edgeStyle=none;rounded=0;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="79" target="77">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="82" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="79" target="78">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="79" value="&lt;p style=&quot;margin: 4px 0px 0px; text-decoration: underline; line-height: 180%;&quot;&gt;&lt;b&gt;analysis : 感情分析結果を見る&lt;/b&gt;&lt;/p&gt;" style="verticalAlign=middle;align=center;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="415" y="185" width="200" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="83" value="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="205" y="180" width="25" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="86" value="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="390" y="180" width="25" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="88" value="1...*" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="490" y="215" width="25" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="90" value="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="710" y="360" width="25" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="92" value="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="710" y="180" width="25" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="94" value="1...*" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="615" y="180" width="25" height="20" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
