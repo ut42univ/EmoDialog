@@ -1,0 +1,217 @@
+<mxfile host="65bd71144e" scale="5" border="10">
+    <diagram id="mpP8sGz9FHktHrAXvyJB" name="ページ1">
+        <mxGraphModel dx="1553" dy="1088" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#ffffff" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="71" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.005;entryY=0.499;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;endFill=0;" edge="1" parent="1" source="74" target="76">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="72" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;entryX=-0.011;entryY=0.492;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;endFill=0;" edge="1" parent="1" source="74" target="78">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="73" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;entryX=-0.01;entryY=0.498;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;endFill=0;" edge="1" parent="1" target="91">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="50" y="470" as="sourcePoint"/>
+                        <Array as="points">
+                            <mxPoint x="50" y="640"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="74" value=": User" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="383" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="103" style="edgeStyle=none;html=1;entryX=0.163;entryY=0.238;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;endFill=0;rounded=0;exitX=0.894;exitY=0.81;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="76" target="87">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="76" value=": 個別の日記を表示する画面" style="shape=umlBoundary;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="368" y="100" width="100" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="77" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;endFill=0;" edge="1" parent="1" source="78" target="87">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="110" style="edgeStyle=none;rounded=0;html=1;endArrow=none;endFill=0;" edge="1" parent="1" source="78" target="91">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="78" value=": 日記を編集&lt;br&gt;する画面" style="shape=umlBoundary;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="368" y="373" width="100" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="79" value="1 : 日記の編集を指示する（Diary）" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" edge="1" parent="1">
+                    <mxGeometry width="80" relative="1" as="geometry">
+                        <mxPoint x="130" y="130.0000000000001" as="sourcePoint"/>
+                        <mxPoint x="330" y="130.0000000000001" as="targetPoint"/>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="80" value="7 : 表示する（body）" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" edge="1" parent="1">
+                    <mxGeometry x="-0.6" y="60" width="80" relative="1" as="geometry">
+                        <mxPoint x="410" y="590.0000000000001" as="sourcePoint"/>
+                        <mxPoint x="410" y="540" as="targetPoint"/>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="81" value="8 : 日記の内容を編集する（new_body）" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" edge="1" parent="1">
+                    <mxGeometry width="80" relative="1" as="geometry">
+                        <mxPoint x="100" y="400" as="sourcePoint"/>
+                        <mxPoint x="330" y="400" as="targetPoint"/>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="82" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="87" target="96">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="918.2999999999997" y="139.84000000000003" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="785" y="140"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="83" style="rounded=0;html=1;entryX=1.01;entryY=0.478;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;endFill=0;" edge="1" parent="1" source="87" target="91">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="84" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="87" target="97">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="918" y="413.0799999999999" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="85" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="87" target="98">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="800" y="640"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="86" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;endFill=0;entryX=1.003;entryY=0.51;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="87" target="101">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="785" y="680" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="785" y="781"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="87" value=": 日記&lt;br&gt;記録管理" style="ellipse;shape=umlControl;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="750" y="373" width="70" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="88" value="9 : 記録内容を確認する（new_body）" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" edge="1" parent="1">
+                    <mxGeometry width="80" relative="1" as="geometry">
+                        <mxPoint x="490" y="400" as="sourcePoint"/>
+                        <mxPoint x="720" y="400" as="targetPoint"/>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="89" value="10 : 制限文字数を確認する（new_body）" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" edge="1" parent="1">
+                    <mxGeometry y="10" width="80" relative="1" as="geometry">
+                        <mxPoint x="810" y="90.00000000000011" as="sourcePoint"/>
+                        <mxPoint x="890" y="90.00000000000011" as="targetPoint"/>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="90" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;entryX=0.284;entryY=0.959;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;endFill=0;" edge="1" parent="1" source="91" target="87">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="770" y="640"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="91" value=": 操作の確認を行う画面" style="shape=umlBoundary;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="368" y="600" width="100" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="92" value="11[文字数制限に問題がない場合] : 日記の記録内容を表示する（new_body）" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" edge="1" parent="1">
+                    <mxGeometry x="1" y="-120" width="80" relative="1" as="geometry">
+                        <mxPoint x="690" y="470" as="sourcePoint"/>
+                        <mxPoint x="490" y="610" as="targetPoint"/>
+                        <mxPoint x="-11" y="8" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="93" value="6 : 編集を確定する（Diary）" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" edge="1" parent="1">
+                    <mxGeometry width="80" relative="1" as="geometry">
+                        <mxPoint x="110" y="600" as="sourcePoint"/>
+                        <mxPoint x="340" y="600" as="targetPoint"/>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="94" value="13 : 記録する（new_body）" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" edge="1" parent="1">
+                    <mxGeometry width="80" relative="1" as="geometry">
+                        <mxPoint x="520" y="630" as="sourcePoint"/>
+                        <mxPoint x="750" y="630" as="targetPoint"/>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="95" value="14 : 上書きする（new_body）" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" edge="1" parent="1">
+                    <mxGeometry x="-0.0123" y="6" width="80" relative="1" as="geometry">
+                        <mxPoint x="839.9999999999998" y="394" as="sourcePoint"/>
+                        <mxPoint x="921" y="394" as="targetPoint"/>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="96" value=": タイムライン" style="ellipse;shape=umlEntity;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="939" y="100" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="97" value=": Diary" style="ellipse;shape=umlEntity;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="939" y="373" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="98" value=": User" style="ellipse;shape=umlEntity;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="939" y="600" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="99" value="15 : 記録を設定する（Diary）" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" edge="1" parent="1">
+                    <mxGeometry x="0.2346" y="30" width="80" relative="1" as="geometry">
+                        <mxPoint x="839.9999999999998" y="630" as="sourcePoint"/>
+                        <mxPoint x="921" y="630" as="targetPoint"/>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="100" value="16 : 記録を設定する（Diary）" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" edge="1" parent="1">
+                    <mxGeometry y="10" width="80" relative="1" as="geometry">
+                        <mxPoint x="810" y="130.0000000000001" as="sourcePoint"/>
+                        <mxPoint x="890" y="130.0000000000001" as="targetPoint"/>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="101" value=": 過去の日記を表示する画面" style="shape=umlBoundary;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="368" y="740" width="100" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="102" value="17 : ..." style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" edge="1" parent="1">
+                    <mxGeometry x="-0.0012" width="80" relative="1" as="geometry">
+                        <mxPoint x="720" y="770" as="sourcePoint"/>
+                        <mxPoint x="570" y="770" as="targetPoint"/>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="104" value="2 : 編集する日記の記録内容を確認する（Diary）" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" edge="1" parent="1">
+                    <mxGeometry x="0.5733" y="76" width="80" relative="1" as="geometry">
+                        <mxPoint x="520" y="200" as="sourcePoint"/>
+                        <mxPoint x="640" y="290" as="targetPoint"/>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="106" value="3 : 記録内容を取得する（Diary）" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" edge="1" parent="1">
+                    <mxGeometry x="-0.0123" y="6" width="80" relative="1" as="geometry">
+                        <mxPoint x="839.9999999999998" y="321" as="sourcePoint"/>
+                        <mxPoint x="921" y="321" as="targetPoint"/>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="108" value="4 : 日記の文章本体を返す（body）" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;rounded=0;" edge="1" parent="1">
+                    <mxGeometry y="-10" relative="1" as="geometry">
+                        <mxPoint x="920" y="360.31" as="sourcePoint"/>
+                        <mxPoint x="840" y="360.31" as="targetPoint"/>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="109" value="5: 編集する日記の記録内容を表示する（body）" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" edge="1" parent="1">
+                    <mxGeometry x="0.2483" y="-70" width="80" relative="1" as="geometry">
+                        <mxPoint x="685" y="460" as="sourcePoint"/>
+                        <mxPoint x="485" y="600" as="targetPoint"/>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="111" value="12 : 編集内容を確定する（new_body）" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" edge="1" parent="1">
+                    <mxGeometry width="80" relative="1" as="geometry">
+                        <mxPoint x="110" y="630" as="sourcePoint"/>
+                        <mxPoint x="340" y="630" as="targetPoint"/>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
