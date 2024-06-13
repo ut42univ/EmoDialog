@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e" scale="5" border="10">
     <diagram id="mpP8sGz9FHktHrAXvyJB" name="ページ1">
-        <mxGraphModel dx="910" dy="638" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#ffffff" math="0" shadow="0">
+        <mxGraphModel dx="657" dy="711" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#ffffff" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -14,7 +14,7 @@
                 <mxCell id="48" value=": User" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
                     <mxGeometry x="40" y="383" width="30" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="56" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;endFill=0;" parent="1" source="50" target="54" edge="1">
+                <mxCell id="56" style="rounded=0;html=1;endArrow=none;endFill=0;entryX=0.843;entryY=0.109;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="58" target="54" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="59" style="edgeStyle=none;html=1;rounded=0;endArrow=none;endFill=0;" parent="1" source="50" target="58" edge="1">
@@ -33,10 +33,10 @@
                 <mxCell id="54" value=": AIと会話する画面" style="shape=umlBoundary;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="368" y="373" width="100" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="57" value="5 : 表示する（conversation）" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" parent="1" edge="1">
-                    <mxGeometry x="0.0909" y="80" width="80" relative="1" as="geometry">
-                        <mxPoint x="430" y="240" as="sourcePoint"/>
-                        <mxPoint x="430" y="350" as="targetPoint"/>
+                <mxCell id="57" value="4 : 表示する（conversation）" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" parent="1" edge="1">
+                    <mxGeometry x="1" y="-57" width="80" relative="1" as="geometry">
+                        <mxPoint x="560" y="260" as="sourcePoint"/>
+                        <mxPoint x="490" y="330" as="targetPoint"/>
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
@@ -48,8 +48,8 @@
                 </mxCell>
                 <mxCell id="60" value="2 : 会話の初期化（）" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" parent="1" edge="1">
                     <mxGeometry x="0.0909" y="10" width="80" relative="1" as="geometry">
-                        <mxPoint x="500" y="110" as="sourcePoint"/>
-                        <mxPoint x="610" y="110" as="targetPoint"/>
+                        <mxPoint x="500" y="160" as="sourcePoint"/>
+                        <mxPoint x="610" y="160" as="targetPoint"/>
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
@@ -60,13 +60,6 @@
                     <mxGeometry x="0.0909" y="80" width="80" relative="1" as="geometry">
                         <mxPoint x="690" y="240.0000000000001" as="sourcePoint"/>
                         <mxPoint x="690" y="350" as="targetPoint"/>
-                        <mxPoint as="offset"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="64" value="4 : 会話を開始（conversation）" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" parent="1" edge="1">
-                    <mxGeometry x="-0.0909" y="-10" width="80" relative="1" as="geometry">
-                        <mxPoint x="610" y="150" as="sourcePoint"/>
-                        <mxPoint x="500" y="150" as="targetPoint"/>
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
