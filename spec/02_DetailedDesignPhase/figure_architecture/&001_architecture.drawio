@@ -1,0 +1,175 @@
+<mxfile host="65bd71144e" scale="5" border="10">
+    <diagram id="r58UJbsZgpb9A693eGnh" name="ページ1">
+        <mxGraphModel dx="3300" dy="2313" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#ffffff" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="49" style="edgeStyle=none;html=1;endArrow=open;endFill=0;" edge="1" parent="1" source="3" target="10">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="Application Layer (Backend)" style="shape=folder;fontStyle=1;tabWidth=187;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;labelInHeader=1;container=1;collapsible=0;" vertex="1" parent="1">
+                    <mxGeometry x="113" y="564" width="600" height="316" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="" style="html=1;strokeColor=none;resizeWidth=1;resizeHeight=1;fillColor=none;part=1;connectable=0;allowArrows=0;deletable=0;" vertex="1" parent="3">
+                    <mxGeometry width="600" height="221.2" relative="1" as="geometry">
+                        <mxPoint y="30" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="53" style="edgeStyle=none;html=1;entryX=0;entryY=0;entryDx=40;entryDy=0;entryPerimeter=0;endArrow=open;endFill=0;" edge="1" parent="3" source="44" target="50">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="54" style="edgeStyle=none;html=1;entryX=0;entryY=0;entryDx=40;entryDy=0;entryPerimeter=0;endArrow=open;endFill=0;" edge="1" parent="3" source="44" target="51">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="55" style="edgeStyle=none;html=1;entryX=0;entryY=0;entryDx=40;entryDy=0;entryPerimeter=0;endArrow=open;endFill=0;" edge="1" parent="3" source="44" target="52">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="44" value="Flask" style="shape=folder;fontStyle=1;tabWidth=80;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;" vertex="1" parent="3">
+                    <mxGeometry x="242.5" y="56" width="115" height="74" as="geometry"/>
+                </mxCell>
+                <mxCell id="50" value="ユーザー認証" style="shape=folder;fontStyle=1;tabWidth=80;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;" vertex="1" parent="3">
+                    <mxGeometry x="47" y="196" width="150" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="51" value="日記管理" style="shape=folder;fontStyle=1;tabWidth=80;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;" vertex="1" parent="3">
+                    <mxGeometry x="226" y="196" width="150" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="52" value="AI連携" style="shape=folder;fontStyle=1;tabWidth=80;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;" vertex="1" parent="3">
+                    <mxGeometry x="407" y="196" width="150" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="35" style="edgeStyle=none;html=1;endArrow=open;endFill=0;" edge="1" parent="1" source="8" target="3">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="Presentation Layer (Frontend)" style="shape=folder;fontStyle=1;tabWidth=187;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;labelInHeader=1;container=1;collapsible=0;" vertex="1" parent="1">
+                    <mxGeometry x="113" y="50" width="600" height="430" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="" style="html=1;strokeColor=none;resizeWidth=1;resizeHeight=1;fillColor=none;part=1;connectable=0;allowArrows=0;deletable=0;" vertex="1" parent="8">
+                    <mxGeometry width="600" height="301" relative="1" as="geometry">
+                        <mxPoint y="30" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="33" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0;entryDx=335;entryDy=30;entryPerimeter=0;endArrow=open;endFill=0;" edge="1" parent="8" source="20" target="30">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="HTML/CSS/JS" style="shape=folder;fontStyle=1;tabWidth=80;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;" vertex="1" parent="8">
+                    <mxGeometry x="307" y="40" width="150" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" value="boundary" style="shape=folder;fontStyle=1;tabWidth=110;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;labelInHeader=1;container=1;collapsible=0;" vertex="1" parent="8">
+                    <mxGeometry x="21" y="130" width="560" height="285" as="geometry"/>
+                </mxCell>
+                <mxCell id="31" value="" style="html=1;strokeColor=none;resizeWidth=1;resizeHeight=1;fillColor=none;part=1;connectable=0;allowArrows=0;deletable=0;" vertex="1" parent="30">
+                    <mxGeometry width="560" height="199.5" relative="1" as="geometry">
+                        <mxPoint y="30" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="21" value="日記を記録する&lt;br&gt;入力画面" style="shape=folder;fontStyle=1;tabWidth=80;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;" vertex="1" parent="30">
+                    <mxGeometry x="10" y="50" width="150" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="過去の日記を表示する&lt;br&gt;画面" style="shape=folder;fontStyle=1;tabWidth=80;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;" vertex="1" parent="30">
+                    <mxGeometry x="190" y="50" width="150" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="個別の日記を&lt;br&gt;表示する画面" style="shape=folder;fontStyle=1;tabWidth=80;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;" vertex="1" parent="30">
+                    <mxGeometry x="370" y="50" width="150" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="感情分析結果を&lt;br&gt;表示する画面" style="shape=folder;fontStyle=1;tabWidth=80;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;" vertex="1" parent="30">
+                    <mxGeometry x="110" y="180" width="150" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="操作の確認を行う画面" style="shape=folder;fontStyle=1;tabWidth=80;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;" vertex="1" parent="30">
+                    <mxGeometry x="290" y="180" width="150" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="58" style="edgeStyle=none;html=1;endArrow=open;endFill=0;" edge="1" parent="1" source="10" target="14">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="Business Logic Layer&amp;nbsp;" style="shape=folder;fontStyle=1;tabWidth=187;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;labelInHeader=1;container=1;collapsible=0;" vertex="1" parent="1">
+                    <mxGeometry x="113" y="947" width="600" height="293" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="" style="html=1;strokeColor=none;resizeWidth=1;resizeHeight=1;fillColor=none;part=1;connectable=0;allowArrows=0;deletable=0;" vertex="1" parent="10">
+                    <mxGeometry width="600" height="189.03225806451616" relative="1" as="geometry">
+                        <mxPoint y="30" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="46" value="control" style="shape=folder;fontStyle=1;tabWidth=110;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;labelInHeader=1;container=1;collapsible=0;" vertex="1" parent="10">
+                    <mxGeometry x="55" y="83" width="490" height="174" as="geometry"/>
+                </mxCell>
+                <mxCell id="47" value="" style="html=1;strokeColor=none;resizeWidth=1;resizeHeight=1;fillColor=none;part=1;connectable=0;allowArrows=0;deletable=0;" vertex="1" parent="46">
+                    <mxGeometry width="490" height="121.79999999999998" relative="1" as="geometry">
+                        <mxPoint y="30" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="39" value="日記記録管理" style="shape=folder;fontStyle=1;tabWidth=80;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;" vertex="1" parent="46">
+                    <mxGeometry x="56.21414913957935" y="67.60411764705883" width="103.05927342256214" height="68.86647058823529" as="geometry"/>
+                </mxCell>
+                <mxCell id="40" value="会話管理" style="shape=folder;fontStyle=1;tabWidth=80;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;" vertex="1" parent="46">
+                    <mxGeometry x="191.00372848948376" y="67.60411764705883" width="109.7019120458891" height="68.86647058823529" as="geometry"/>
+                </mxCell>
+                <mxCell id="41" value="感情分析管理" style="shape=folder;fontStyle=1;tabWidth=80;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;" vertex="1" parent="46">
+                    <mxGeometry x="332.0039196940727" y="67.60411764705883" width="112.4282982791587" height="68.86647058823529" as="geometry"/>
+                </mxCell>
+                <mxCell id="67" style="edgeStyle=none;html=1;endArrow=open;endFill=0;" edge="1" parent="1" source="14" target="16">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="Data Access Layer" style="shape=folder;fontStyle=1;tabWidth=187;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;labelInHeader=1;container=1;collapsible=0;" vertex="1" parent="1">
+                    <mxGeometry x="114" y="1320" width="600" height="230" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="" style="html=1;strokeColor=none;resizeWidth=1;resizeHeight=1;fillColor=none;part=1;connectable=0;allowArrows=0;deletable=0;" vertex="1" parent="14">
+                    <mxGeometry width="600" height="161" relative="1" as="geometry">
+                        <mxPoint y="30" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="57" value="日記情報の取得・保存" style="shape=folder;fontStyle=1;tabWidth=80;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;" vertex="1" parent="14">
+                    <mxGeometry x="225" y="100" width="150" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="56" value="ユーザー情報取得・保存" style="shape=folder;fontStyle=1;tabWidth=80;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;" vertex="1" parent="14">
+                    <mxGeometry x="55" y="100" width="150" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="64" value="会話情報の取得・保存" style="shape=folder;fontStyle=1;tabWidth=80;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;" vertex="1" parent="14">
+                    <mxGeometry x="395" y="100" width="150" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="72" style="edgeStyle=none;html=1;endArrow=open;endFill=0;" edge="1" parent="1" source="16" target="18">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="Data Layer" style="shape=folder;fontStyle=1;tabWidth=187;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;labelInHeader=1;container=1;collapsible=0;" vertex="1" parent="1">
+                    <mxGeometry x="114" y="1640" width="600" height="360" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="" style="html=1;strokeColor=none;resizeWidth=1;resizeHeight=1;fillColor=none;part=1;connectable=0;allowArrows=0;deletable=0;" vertex="1" parent="16">
+                    <mxGeometry width="600" height="252" relative="1" as="geometry">
+                        <mxPoint y="30" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="59" value="SQLite（データベース）" style="shape=folder;fontStyle=1;tabWidth=141;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;labelInHeader=1;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="16">
+                    <mxGeometry x="49" y="70" width="490" height="230" as="geometry"/>
+                </mxCell>
+                <mxCell id="63" value="ユーザー情報" style="shape=folder;fontStyle=1;tabWidth=80;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;" vertex="1" parent="59">
+                    <mxGeometry x="9" y="100" width="150" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="65" value="日記情報" style="shape=folder;fontStyle=1;tabWidth=80;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;" vertex="1" parent="59">
+                    <mxGeometry x="170" y="100" width="150" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="66" value="会話情報" style="shape=folder;fontStyle=1;tabWidth=80;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;" vertex="1" parent="59">
+                    <mxGeometry x="329" y="100" width="150" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="External Services Layer" style="shape=folder;fontStyle=1;tabWidth=187;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;labelInHeader=1;container=1;collapsible=0;" vertex="1" parent="1">
+                    <mxGeometry x="113" y="2067" width="600" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="" style="html=1;strokeColor=none;resizeWidth=1;resizeHeight=1;fillColor=none;part=1;connectable=0;allowArrows=0;deletable=0;" vertex="1" parent="18">
+                    <mxGeometry width="600" height="140" relative="1" as="geometry">
+                        <mxPoint y="30" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="68" value="OpenAI API" style="shape=folder;fontStyle=1;tabWidth=110;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;labelInHeader=1;container=1;collapsible=0;" vertex="1" parent="18">
+                    <mxGeometry x="17" y="50" width="453" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="69" value="" style="html=1;strokeColor=none;resizeWidth=1;resizeHeight=1;fillColor=none;part=1;connectable=0;allowArrows=0;deletable=0;" vertex="1" parent="68">
+                    <mxGeometry width="453" height="98" relative="1" as="geometry">
+                        <mxPoint y="30" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="70" value="感情分析" style="shape=folder;fontStyle=1;tabWidth=80;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;" vertex="1" parent="68">
+                    <mxGeometry x="61.5" y="43" width="150" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="71" value="返答生成" style="shape=folder;fontStyle=1;tabWidth=80;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;" vertex="1" parent="68">
+                    <mxGeometry x="241.5" y="43" width="150" height="80" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
