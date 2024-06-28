@@ -1,0 +1,6 @@
+
+/* Set a default font and background color */
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  color: #333;
+}

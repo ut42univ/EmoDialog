@@ -1,0 +1,119 @@
+from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
+import pytz
+
+db = SQLAlchemy()
+
+# Entity classes
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(80), unique=True, nullable=False)
+    password = db.Column(db.String(120), nullable=False)
+    diaries = db.relationship('Diary', backref='author', lazy=True)
+    chats = db.relationship('Chat', backref='user', lazy=True)
+
+    def __init__(self, username:str, password:str):
+        self.username = username
+        self.password = password
+
+    def login(self, username:str, password:str):
+        user = User.query.filter_by(username=username).first()
+        if user is None:
+            return False
+        if user.password == password:
+            return True
+        return False
+    
+    def logout(self):
+        return True
+    
+    def is_authenticated(self):
+        return True
+    
+    def get_diaries(self):
+        return self.diaries
+    
+    def get_chats(self):
+        return self.chats
+
+class Diary(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    create_at = db.Column(
+        db.DateTime,
+        nullable=False,
+        default=lambda: datetime.now(pytz.timezone('Asia/Tokyo'))
+    )
+    update_at = db.Column(
+        db.DateTime,
+        nullable=False,
+        default=lambda: datetime.now(pytz.timezone('Asia/Tokyo')),
+        onupdate=lambda: datetime.now(pytz.timezone('Asia/Tokyo'))
+    )
+    body = db.Column(db.String(500), nullable=False)
+    response = db.Column(db.String(500))
+    emotion = db.Column(db.String(100))
+    emotion_degree = db.Column(db.Integer)
+
+    def __init__(self, user_id:int, body:str):
+        self.user_id = user_id
+        self.body = body
+    
+    def create(self, body:str):
+        self.body = body
+        db.session.add(self)
+        db.session.commit()
+    
+    def edit(self, id:int, new_body:str):
+        diary = Diary.query.filter_by(id=id).first()
+        diary.body = new_body
+        db.session.commit()
+
+    def delete(self, id:int):
+        diary = Diary.query.filter_by(id=id).first()
+        db.session.delete(diary)
+        db.session.commit()
+
+    def get_body(self, id:int):
+        diary = Diary.query.filter_by(id=id).first()
+        return diary.body
+        
+
+class Chat(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    start_time = db.Column(db.DateTime, default=lambda: datetime.now(pytz.timezone('Asia/Tokyo')))
+    end_time = db.Column(db.DateTime)
+    messages = db.Column(db.Text, nullable=True)
+
+    def __init__(self, user_id:int):
+        self.user_id = user_id
+
+    def add_message(self, id:int, message:str):
+        chat = Chat.query.filter_by(id=id).first()
+        chat.messages += f'\n{message}'
+        db.session.commit()
+    
+    def get_messages(self, id:int):
+        chat = Chat.query.filter_by(id=id).first()
+        return chat.messages
+
+    def delete(self, id:int):
+        chat = Chat.query.filter_by(id=id).first()
+        db.session.delete(chat)
+        db.session.commit()
+
+class EmotionAI(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    bot_name = db.Column(db.String(100), nullable=False)
+
+    def __init__(self, bot_name:str):
+        self.bot_name = bot_name
+
+    
+    
+    def analyze_emotion(self, diaryId:int):
+        diary = Diary.query.filter_by(id=diaryId).first()
+        body = diary.body
+        
+        return 'Response', 'Emotion', 90
