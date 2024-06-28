@@ -1,4 +1,5 @@
 from models import db, User, Diary, Chat, EmotionAI
+from sqlalchemy import desc
 
 class UserController:
     def create_user(self, username, password):
@@ -13,12 +14,12 @@ class UserController:
         return False
 
 class DiaryController:
-    def create_diary(self, user_id, body):
+    def create_diary(self, user_id:int, body:str):
         diary = Diary(user_id=user_id, body=body)
         db.session.add(diary)
         db.session.commit()
 
-    def edit_diary(self, diary_id, new_body):
+    def edit_diary(self, diary_id:int, new_body:str):
         diary = Diary.query.get(diary_id)
         if diary:
             diary.body = new_body
@@ -29,6 +30,10 @@ class DiaryController:
         if diary:
             db.session.delete(diary)
             db.session.commit()
+    
+    def get_diaries(self):
+        diaries = Diary.query.order_by(desc(Diary.create_at)).all()
+        return diaries
 
 class ChatController:
     def start_conversation(self, user_id):

@@ -1,11 +1,12 @@
 from flask_sqlalchemy import SQLAlchemy
+from flask_login import UserMixin
 from datetime import datetime
 import pytz
 
 db = SQLAlchemy()
 
 # Entity classes
-class User(db.Model):
+class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), unique=True, nullable=False)
     password = db.Column(db.String(120), nullable=False)
@@ -54,29 +55,6 @@ class Diary(db.Model):
     response = db.Column(db.String(500))
     emotion = db.Column(db.String(100))
     emotion_degree = db.Column(db.Integer)
-
-    def __init__(self, user_id:int, body:str):
-        self.user_id = user_id
-        self.body = body
-    
-    def create(self, body:str):
-        self.body = body
-        db.session.add(self)
-        db.session.commit()
-    
-    def edit(self, id:int, new_body:str):
-        diary = Diary.query.filter_by(id=id).first()
-        diary.body = new_body
-        db.session.commit()
-
-    def delete(self, id:int):
-        diary = Diary.query.filter_by(id=id).first()
-        db.session.delete(diary)
-        db.session.commit()
-
-    def get_body(self, id:int):
-        diary = Diary.query.filter_by(id=id).first()
-        return diary.body
         
 
 class Chat(db.Model):

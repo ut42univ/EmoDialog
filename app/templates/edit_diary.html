@@ -2,5 +2,10 @@
 {% block content %}
 
 <h2>EditDiaryPage</h2>
+<form action="/diaries/{{ diary.id }}/update" method="POST">
+    <label for="body">body</label>
+    <textarea name="body" rows="5">{{ diary.body }}</textarea>
 
+    <input type="submit" value="submit">
+</form>
 {% endblock %}

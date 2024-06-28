@@ -1,39 +1,72 @@
+import os
+from controllers import DiaryController
+from models import db, Diary
 from flask import Flask
-# from models import db
 from flask import render_template, request, redirect, url_for
+from sqlalchemy import desc
+# from flask_login import LoginManager
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///diary_app.db'
+app.config['SECRET_KEY'] = os.urandom(24)
 
+db.init_app(app)
+with app.app_context():
+    db.create_all()
 
-# db.init_app(app)
+# login_manager = LoginManager()
+# login_manager.init_app(app)
 
-# with app.app_context():
-#     db.create_all()
+id = 1
 
 @app.route("/")
 def indexPage():
     return render_template('index.html')
 
-@app.route("/create_diary")
+@app.route("/create_diary", methods=['GET', 'POST'])
 def createDiaryPage():
-    return render_template('create_diary.html')
+    if request.method == 'GET':
+        return render_template('create_diary.html')
+    
+    if request.method == 'POST':
+        body = request.form['body']
+        user_id = id
+        diary = Diary(user_id, body)
+
+        if len(body) == 0:
+            return 'Body is empty'
+        else:
+            diary.create(body)
+     
+        return redirect(url_for('diariesPage'))
 
 @app.route("/diaries")
 def diariesPage():
-    return render_template('diaries.html')
+    diaries = Diary.query.order_by(desc(Diary.create_at)).all()
+    return render_template('diaries.html', diaries=diaries)
 
 @app.route("/diaries/<int:diary_id>")
 def diaryPage(diary_id):
-    return render_template('diary.html', diary_id=diary_id)
+    diary = DiaryController.query.get(diary_id)
+    return render_template('diary.html', diary=diary)
 
 @app.route("/diaries/<int:diary_id>/edit")
 def editDiaryPage(diary_id):
-    return render_template('edit_diary.html', diary_id=diary_id)
+    diary = DiaryC.query.get(diary_id)
+    return render_template('edit_diary.html', diary=diary)
+
+@app.route("/diaries/<int:diary_id>/update", methods=['POST'])
+def updateDiary(diary_id):
+    new_body = request.form['body']
+    diary = Diary.query.get(diary_id)
+    diary.edit(diary_id, new_body)
+    return redirect(url_for('diariesPage'))
 
 @app.route("/diaries/<int:diary_id>/delete")
-def deleteDiaryPage(diary_id):
-    return 'Deleted diary with id: ' + str(diary_id)
+def deleteDiary(diary_id):
+    diary = Diary.query.get(diary_id)
+    diary.delete(diary_id)
+    return redirect(url_for('diariesPage'))
 
 @app.route("/chat")
 def chatPage():
