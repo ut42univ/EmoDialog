@@ -8,34 +8,10 @@ db = SQLAlchemy()
 # Entity classes
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(80), unique=True, nullable=False)
-    password = db.Column(db.String(120), nullable=False)
+    username = db.Column(db.String(30), unique=True)
+    password = db.Column(db.String(120))
     diaries = db.relationship('Diary', backref='author', lazy=True)
     chats = db.relationship('Chat', backref='user', lazy=True)
-
-    def __init__(self, username:str, password:str):
-        self.username = username
-        self.password = password
-
-    def login(self, username:str, password:str):
-        user = User.query.filter_by(username=username).first()
-        if user is None:
-            return False
-        if user.password == password:
-            return True
-        return False
-    
-    def logout(self):
-        return True
-    
-    def is_authenticated(self):
-        return True
-    
-    def get_diaries(self):
-        return self.diaries
-    
-    def get_chats(self):
-        return self.chats
 
 class Diary(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -83,6 +59,7 @@ class Chat(db.Model):
 
 class EmotionAI(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     bot_name = db.Column(db.String(100), nullable=False)
 
     def __init__(self, bot_name:str):

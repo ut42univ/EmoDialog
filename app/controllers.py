@@ -1,17 +1,27 @@
 from models import db, User, Diary, Chat, EmotionAI
 from sqlalchemy import desc
+from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import login_user, logout_user
+
 
 class UserController:
-    def create_user(self, username, password):
-        user = User(username=username, password=password)
+    def sign_up(self, username, password):
+        user = User(username=username, password=generate_password_hash(password, method='pbkdf2:sha256'))
         db.session.add(user)
         db.session.commit()
 
-    def login_user(self, username, password):
+    def login(self, username, password):
         user = User.query.filter_by(username=username).first()
-        if user and user.password == password:
+        if check_password_hash(user.password, password):
+            login_user(user)
             return True
         return False
+    
+    def logout(self):
+        logout_user()
+    
+    def user_load_control(self, user_id):
+        return User.query.get(user_id)
 
 class DiaryController:
     def create_diary(self, user_id:int, body:str):
@@ -30,8 +40,12 @@ class DiaryController:
         if diary:
             db.session.delete(diary)
             db.session.commit()
+
+    def get_diary(self, diary_id):
+        diary = Diary.query.get(diary_id)
+        return diary
     
-    def get_diaries(self):
+    def get_all(self):
         diaries = Diary.query.order_by(desc(Diary.create_at)).all()
         return diaries
 
