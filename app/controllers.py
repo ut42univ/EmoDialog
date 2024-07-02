@@ -29,11 +29,17 @@ class DiaryController:
         db.session.add(diary)
         db.session.commit()
 
+        diary_id = diary.id
+        AnalysisController().analyze_diary(diary_id)
+
     def edit_diary(self, diary_id:int, new_body:str):
         diary = Diary.query.get(diary_id)
         if diary:
             diary.body = new_body
             db.session.commit()
+
+            diary_id = diary.id
+            AnalysisController().analyze_diary(diary_id)
 
     def delete_diary(self, diary_id):
         diary = Diary.query.get(diary_id)
@@ -41,11 +47,24 @@ class DiaryController:
             db.session.delete(diary)
             db.session.commit()
 
+    def is_diary_owner(self, diary_id, user_id):
+        diary = Diary.query.get(diary_id)
+        try:
+            if diary.user_id == user_id:
+                return True
+        except:
+            return False
+        return False
+
     def get_diary(self, diary_id):
         diary = Diary.query.get(diary_id)
         return diary
     
-    def get_all(self):
+    def get_user_diaries(self, user_id: int):
+        diaries = Diary.query.order_by(desc(Diary.create_at)).filter_by(user_id=user_id).all()
+        return diaries
+    
+    def get_all_diaries(self):
         diaries = Diary.query.order_by(desc(Diary.create_at)).all()
         return diaries
 
@@ -71,4 +90,8 @@ class AnalysisController:
     def analyze_diary(self, diary_id):
         emotion_ai = EmotionAI(bot_name='Alice')
         response, emotion, degree = emotion_ai.analyze_emotion(diary_id)
-        return response, emotion, degree
+        diary = Diary.query.get(diary_id)
+        diary.response = response
+        diary.emotion = emotion
+        diary.emotion_degree = degree
+        db.session.commit()

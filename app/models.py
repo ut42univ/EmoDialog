@@ -71,4 +71,4 @@ class EmotionAI(db.Model):
         diary = Diary.query.filter_by(id=diaryId).first()
         body = diary.body
         
-        return 'Response', 'Emotion', 90
+        return f'Response for {body}!', 'happy', 90
