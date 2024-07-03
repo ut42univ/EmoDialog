@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmoDialog</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap');
+    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+</head>
+<header>
+    <h1>EmoDialog</h1>
+    <nav>
+        <ul>
+            <li><a href="../../">HOME</a></li>
+            <li><a href="../../logout">LOGOUT</a></li>
+        </ul>
+    </nav>
+</header>
+<body>
+    {% block content %}
+    {% endblock %}    
+</body>
+</html>

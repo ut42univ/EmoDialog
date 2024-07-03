@@ -1,0 +1,128 @@
+<mxfile host="65bd71144e" scale="5" border="10">
+    <diagram id="6NRBU0wVSXhq6vlPgpqr" name="ページ1">
+        <mxGraphModel dx="1886" dy="1321" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#ffffff" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="62" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;rounded=0;" edge="1" parent="1" source="6" target="54">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="63" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="6" target="46">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="67" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="6" target="44">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;text-decoration:underline;&quot;&gt;&lt;b&gt;user1 : User&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;userId = 1&lt;br&gt;userName = &quot;John&quot;&lt;br&gt;password = &quot;password&quot;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="20" y="387.5" width="160" height="87" as="geometry"/>
+                </mxCell>
+                <mxCell id="64" style="edgeStyle=none;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="10" target="50">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="65" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;rounded=0;" edge="1" parent="1" source="10" target="58">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="68" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="10" target="44">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;text-decoration:underline;&quot;&gt;&lt;b&gt;bot1 : EmotionAI&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;botId = 1&lt;br&gt;botName = &quot;Alice&quot;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="990" y="574" width="160" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="43" value="&lt;h1&gt;シナリオ ($_002)&lt;/h1&gt;&lt;p&gt;Userである&quot;John&quot;は2024年5月17日10時00分に，EmotionAIに対して「やる気がない時はどうすればいい？」という対話を投げかけた（対話を開始）．それに対して，EmotionAIである&quot;Alice&quot;は「やる気が出ない時は，作業する場所や環境を変えてみるといいでしょう．」というメッセージを返答した．それに対してさらにUser&quot;John&quot;は「例えばカフェで勉強してみるとか？」とメッセージを追加して返答した．それに対してEmotionAI&quot;Alice&quot;は返信に対して，「そうですね．ほかにも図書館やコワーキングスペースもおすすめですよ．」と返答した．User&quot;John&quot;はEmotinAIからの返答を確認した後，2024年5月17日10時05分に対話を最後に終了した．&lt;/p&gt;" style="text;html=1;strokeColor=default;fillColor=#F2F2F2;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;strokeWidth=2;gradientColor=none;fillStyle=auto;" parent="1" vertex="1">
+                    <mxGeometry x="20" y="10" width="650" height="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="71" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=-0.002;entryY=0.265;entryDx=0;entryDy=0;endArrow=none;endFill=0;entryPerimeter=0;" edge="1" parent="1" source="44" target="54">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="455" y="280"/>
+                            <mxPoint x="310" y="280"/>
+                            <mxPoint x="310" y="780"/>
+                            <mxPoint x="419" y="780"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="73" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="44" target="50">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="745" y="320"/>
+                            <mxPoint x="860" y="320"/>
+                            <mxPoint x="860" y="590"/>
+                            <mxPoint x="780" y="590"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="74" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.999;entryY=0.156;entryDx=0;entryDy=0;endArrow=none;endFill=0;entryPerimeter=0;" edge="1" parent="1" source="44" target="58">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="745" y="280"/>
+                            <mxPoint x="940" y="280"/>
+                            <mxPoint x="940" y="960"/>
+                            <mxPoint x="780" y="960"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="75" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="44" target="46">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="455" y="310"/>
+                            <mxPoint x="360" y="310"/>
+                            <mxPoint x="360" y="410"/>
+                            <mxPoint x="420" y="410"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="44" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;text-decoration:underline;&quot;&gt;&lt;b&gt;conv1 : Conversation&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;conversationId: 1&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;startTime: &quot;2024-05-17T10:00:00&quot;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;endTime: &quot;2024-05-17T10:05:00&quot;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;messages: [&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;&lt;/span&gt;message1,&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;&lt;/span&gt;message2,&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;&lt;/span&gt;message3,&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;&lt;/span&gt;message4&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#9;&lt;/span&gt;]&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="455" y="190" width="290" height="170" as="geometry"/>
+                </mxCell>
+                <mxCell id="45" value="message1 : Message" style="swimlane;fontStyle=5;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;labelBackgroundColor=none;labelBorderColor=none;fontColor=default;html=0;" vertex="1" parent="1">
+                    <mxGeometry x="420" y="368" width="360" height="134" as="geometry"/>
+                </mxCell>
+                <mxCell id="46" value="- messageId: 201&#10;- content: &quot;やる気がない時はどうすればいい？&quot;&#10;- timestamp: &quot;2024-05-17T10:00:00&quot;&#10;- sender: &quot;User&quot;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;labelBackgroundColor=none;labelBorderColor=none;fontColor=default;html=0;" vertex="1" parent="45">
+                    <mxGeometry y="26" width="360" height="74" as="geometry"/>
+                </mxCell>
+                <mxCell id="47" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;labelBackgroundColor=none;labelBorderColor=none;fontColor=default;html=0;" vertex="1" parent="45">
+                    <mxGeometry y="100" width="360" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="48" value=" " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;labelBackgroundColor=none;labelBorderColor=none;fontColor=default;html=0;" vertex="1" parent="45">
+                    <mxGeometry y="108" width="360" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="49" value="message2 : Message" style="swimlane;fontStyle=5;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;labelBackgroundColor=none;labelBorderColor=none;fontColor=default;html=0;" vertex="1" parent="1">
+                    <mxGeometry x="420" y="526" width="360" height="174" as="geometry"/>
+                </mxCell>
+                <mxCell id="50" value="- messageId: 202&#10;- content: &quot;&#10;    やる気が出ない時は，&#10;    作業する場所や環境を変えてみるといいでしょう．&#10;    &quot;&#10;- timestamp: &quot;2024-05-17T10:02:00&quot;&#10;- sender: &quot;EmotionAI&quot;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;labelBackgroundColor=none;labelBorderColor=none;fontColor=default;html=0;" vertex="1" parent="49">
+                    <mxGeometry y="26" width="360" height="114" as="geometry"/>
+                </mxCell>
+                <mxCell id="51" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;labelBackgroundColor=none;labelBorderColor=none;fontColor=default;html=0;" vertex="1" parent="49">
+                    <mxGeometry y="140" width="360" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="52" value=" " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;labelBackgroundColor=none;labelBorderColor=none;fontColor=default;html=0;" vertex="1" parent="49">
+                    <mxGeometry y="148" width="360" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="53" value="message3 : Message" style="swimlane;fontStyle=5;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;labelBackgroundColor=none;labelBorderColor=none;fontColor=default;html=0;" vertex="1" parent="1">
+                    <mxGeometry x="420" y="737" width="360" height="134" as="geometry"/>
+                </mxCell>
+                <mxCell id="54" value="- messageId: 203&#10;- content: &quot;例えばカフェで勉強してみるとか？&quot;&#10;- timestamp: &quot;2024-05-17T10:04:00&quot;&#10;- sender: &quot;User&quot;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;labelBackgroundColor=none;labelBorderColor=none;fontColor=default;html=0;" vertex="1" parent="53">
+                    <mxGeometry y="26" width="360" height="74" as="geometry"/>
+                </mxCell>
+                <mxCell id="55" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;labelBackgroundColor=none;labelBorderColor=none;fontColor=default;html=0;" vertex="1" parent="53">
+                    <mxGeometry y="100" width="360" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="56" value=" " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;labelBackgroundColor=none;labelBorderColor=none;fontColor=default;html=0;" vertex="1" parent="53">
+                    <mxGeometry y="108" width="360" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="57" value="message4 : Message" style="swimlane;fontStyle=5;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;labelBackgroundColor=none;labelBorderColor=none;fontColor=default;html=0;" vertex="1" parent="1">
+                    <mxGeometry x="420" y="900" width="360" height="174" as="geometry"/>
+                </mxCell>
+                <mxCell id="58" value="- messageId: 204&#10;- content: &quot;&#10;    そうですね．&#10;    ほかにも図書館やコワーキングスペースもおすすめですよ．&#10;    &quot;&#10;- timestamp: &quot;2024-05-17T10:05:00&quot;&#10;- sender: &quot;EmotionAI&quot;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;labelBackgroundColor=none;labelBorderColor=none;fontColor=default;html=0;" vertex="1" parent="57">
+                    <mxGeometry y="26" width="360" height="114" as="geometry"/>
+                </mxCell>
+                <mxCell id="59" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;labelBackgroundColor=none;labelBorderColor=none;fontColor=default;html=0;" vertex="1" parent="57">
+                    <mxGeometry y="140" width="360" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="60" value=" " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;labelBackgroundColor=none;labelBorderColor=none;fontColor=default;html=0;" vertex="1" parent="57">
+                    <mxGeometry y="148" width="360" height="26" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

@@ -1,0 +1,76 @@
+<mxfile host="65bd71144e" scale="5" border="10">
+    <diagram id="mpP8sGz9FHktHrAXvyJB" name="ページ1">
+        <mxGraphModel dx="544" dy="588" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#ffffff" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="52" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=-0.003;entryY=0.494;entryDx=0;entryDy=0;entryPerimeter=0;rounded=0;endArrow=none;endFill=0;" parent="1" source="48" target="50" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="55" y="170"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="48" value=": User" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="383" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="56" style="rounded=0;html=1;endArrow=none;endFill=0;entryX=0.875;entryY=0.126;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="59" target="54" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="63" style="edgeStyle=none;html=1;endArrow=none;endFill=0;rounded=0;" parent="1" source="50" target="59" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="50" value=": メイン画面" style="shape=umlBoundary;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="368" y="131" width="100" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="53" value="1 : 感情分析結果の表示を指示する（）" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" parent="1" edge="1">
+                    <mxGeometry y="10" width="80" relative="1" as="geometry">
+                        <mxPoint x="120" y="159.9999999999999" as="sourcePoint"/>
+                        <mxPoint x="320" y="159.9999999999999" as="targetPoint"/>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="54" value=": 感情分析&lt;br&gt;結果を表示する画面" style="shape=umlBoundary;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="368" y="373" width="100" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="57" value="5 : 表示する（analysis）" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" parent="1" edge="1">
+                    <mxGeometry x="1" y="-42" width="80" relative="1" as="geometry">
+                        <mxPoint x="592.57" y="250" as="sourcePoint"/>
+                        <mxPoint x="520" y="310" as="targetPoint"/>
+                        <mxPoint x="-3" y="2" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="58" style="edgeStyle=none;rounded=0;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=none;endFill=0;" parent="1" source="59" target="60" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="59" value=": 感情&lt;br&gt;分析管理" style="ellipse;shape=umlControl;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="670" y="131" width="70" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="60" value=": Analysis" style="ellipse;shape=umlEntity;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="665" y="374" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="62" value="3 : 感情分析結果を取得する" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" parent="1" edge="1">
+                    <mxGeometry x="0.0909" y="80" width="80" relative="1" as="geometry">
+                        <mxPoint x="720" y="240" as="sourcePoint"/>
+                        <mxPoint x="720" y="350" as="targetPoint"/>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="64" value="2 : 感情分析結果を確認する（）" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" parent="1" edge="1">
+                    <mxGeometry x="0.0769" y="10" width="80" relative="1" as="geometry">
+                        <mxPoint x="510" y="160" as="sourcePoint"/>
+                        <mxPoint x="640" y="160" as="targetPoint"/>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="65" value="4 : 感情分析結果を返す&lt;br&gt;（analysis）" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;rounded=0;" parent="1" edge="1">
+                    <mxGeometry x="-0.6364" y="70" relative="1" as="geometry">
+                        <mxPoint x="690" y="350" as="sourcePoint"/>
+                        <mxPoint x="690" y="240" as="targetPoint"/>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

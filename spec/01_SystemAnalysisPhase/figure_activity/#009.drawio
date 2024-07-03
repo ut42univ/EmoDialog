@@ -1,0 +1,76 @@
+<mxfile host="65bd71144e" scale="10" border="10">
+    <diagram id="PJhBvZbjIUu8iOUgB9s-" name="ページ1">
+        <mxGraphModel dx="1296" dy="925" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#ffffff" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="42" value="#009 日記内容を分析する" style="swimlane;whiteSpace=wrap;html=1;swimlaneLine=1;startSize=20;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="40" width="760" height="830" as="geometry"/>
+                </mxCell>
+                <mxCell id="47" value="感情分析AI" style="swimlane;whiteSpace=wrap;html=1;" parent="42" vertex="1">
+                    <mxGeometry y="20" width="440" height="810" as="geometry">
+                        <mxRectangle y="20" width="90" height="30" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="104" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="47" source="101" target="103" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="101" value="システムからユーザーの日記の内容を取得" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;" parent="47" vertex="1">
+                    <mxGeometry x="131.25" y="140" width="177.5" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="106" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="47" source="103" target="105" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="103" value="（生成AIサービスを用いて）&lt;br&gt;適切な返答を生成する．" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;" parent="47" vertex="1">
+                    <mxGeometry x="131.25" y="340" width="177.5" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="105" value="体裁を整えて，&lt;br&gt;システムに生成結果をシステムに返す．" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;" parent="47" vertex="1">
+                    <mxGeometry x="131.25" y="539" width="177.5" height="61" as="geometry"/>
+                </mxCell>
+                <mxCell id="110" value="生成AIサービス" style="swimlane;whiteSpace=wrap;html=1;" parent="47" vertex="1">
+                    <mxGeometry x="84.38" y="280" width="271.25" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="48" value="システム" style="swimlane;whiteSpace=wrap;html=1;" parent="42" vertex="1">
+                    <mxGeometry x="440" y="20" width="320" height="810" as="geometry">
+                        <mxRectangle x="320" y="20" width="90" height="30" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="76" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontColor=#000000;rounded=0;" parent="48" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="305" y="325" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="100" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;rounded=0;" parent="48" source="49" target="97" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="49" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#000000;" parent="48" vertex="1">
+                    <mxGeometry x="140" y="60" width="40" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="97" value="ユーザーが記録した日記の内容を感情分析AIへ送信" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;" parent="48" vertex="1">
+                    <mxGeometry x="71.25" y="140" width="177.5" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="111" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="48" source="108" target="98" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="108" value="受け取った結果を&lt;br&gt;「個別の日記を表示する画面」に出力する" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;" parent="48" vertex="1">
+                    <mxGeometry x="71.25" y="539" width="177.5" height="61" as="geometry"/>
+                </mxCell>
+                <mxCell id="99" value="" style="group" parent="48" vertex="1" connectable="0">
+                    <mxGeometry x="140" y="660" width="40" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="68" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#000000;" parent="99" vertex="1">
+                    <mxGeometry x="5.00363636363636" y="5" width="30" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="98" value="" style="ellipse;shape=doubleEllipse;whiteSpace=wrap;html=1;aspect=fixed;rounded=0;fillColor=none;" parent="99" vertex="1">
+                    <mxGeometry width="40" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="102" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="42" source="97" target="101" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="109" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="42" source="105" target="108" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

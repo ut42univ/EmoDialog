@@ -1,0 +1,114 @@
+<mxfile host="65bd71144e" scale="5" border="10">
+    <diagram id="mpP8sGz9FHktHrAXvyJB" name="ページ1">
+        <mxGraphModel dx="1320" dy="925" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#ffffff" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="52" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=-0.003;entryY=0.494;entryDx=0;entryDy=0;entryPerimeter=0;rounded=0;endArrow=none;endFill=0;" parent="1" source="48" target="50" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="250" y="413"/>
+                            <mxPoint x="250" y="413"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="48" value=": User" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="383" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="60" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;endFill=0;" parent="1" source="50" target="59" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="50" value=": AIと会話を&lt;br&gt;する画面" style="shape=umlBoundary;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="350" y="374" width="100" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="53" value="1 : 感情分析AIへの質問の投げかけを指示する&lt;br&gt;（conversation, message）" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" parent="1" edge="1">
+                    <mxGeometry y="10" width="80" relative="1" as="geometry">
+                        <mxPoint x="110" y="399.9999999999999" as="sourcePoint"/>
+                        <mxPoint x="310" y="399.9999999999999" as="targetPoint"/>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="93" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;" parent="1" source="59" target="91" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="99" style="edgeStyle=none;html=1;rounded=0;endArrow=none;endFill=0;" parent="1" source="59" target="104" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="70" y="630" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="59" value=": 会話管理" style="ellipse;shape=umlControl;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="365" y="590" width="70" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="61" value="2 : 内容を確認する&lt;br&gt;（conversation, message）" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" parent="1" edge="1">
+                    <mxGeometry y="70" width="80" relative="1" as="geometry">
+                        <mxPoint x="410" y="480" as="sourcePoint"/>
+                        <mxPoint x="410" y="560" as="targetPoint"/>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="91" value=": Conversation" style="ellipse;shape=umlEntity;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="800" y="590" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="92" value="9 : 返答結果を出力（response）" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" parent="1" edge="1">
+                    <mxGeometry x="-0.5" y="100" width="80" relative="1" as="geometry">
+                        <mxPoint x="390" y="560" as="sourcePoint"/>
+                        <mxPoint x="390" y="480" as="targetPoint"/>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="94" value="4 : 質問内容を追加（message）" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" parent="1" edge="1">
+                    <mxGeometry y="10" width="80" relative="1" as="geometry">
+                        <mxPoint x="650" y="580" as="sourcePoint"/>
+                        <mxPoint x="730" y="580" as="targetPoint"/>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="95" value="5 : いままでの会話内容を取得（）" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" parent="1" edge="1">
+                    <mxGeometry y="10" width="80" relative="1" as="geometry">
+                        <mxPoint x="650" y="619.9999999999999" as="sourcePoint"/>
+                        <mxPoint x="730" y="619.9999999999999" as="targetPoint"/>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="96" value="6 : いままでの会話内容を返す&lt;br&gt;（messages[]）" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;rounded=0;" parent="1" edge="1">
+                    <mxGeometry y="40" relative="1" as="geometry">
+                        <mxPoint x="730" y="639.9999999999999" as="sourcePoint"/>
+                        <mxPoint x="650" y="639.9999999999999" as="targetPoint"/>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="100" value="7 : 会話をもとに返答を生成する&lt;br&gt;（messages[]）" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" parent="1" edge="1">
+                    <mxGeometry y="-10" width="80" relative="1" as="geometry">
+                        <mxPoint x="320" y="620" as="sourcePoint"/>
+                        <mxPoint x="120" y="620" as="targetPoint"/>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="101" value="8 : 生成結果を返す（response）" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;rounded=0;" parent="1" edge="1">
+                    <mxGeometry y="-30" relative="1" as="geometry">
+                        <mxPoint x="120" y="640" as="sourcePoint"/>
+                        <mxPoint x="320" y="640" as="targetPoint"/>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="102" value="3 : 質問内容を出力（message）" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" parent="1" edge="1">
+                    <mxGeometry x="0.25" y="90" width="80" relative="1" as="geometry">
+                        <mxPoint x="380" y="560" as="sourcePoint"/>
+                        <mxPoint x="380" y="480" as="targetPoint"/>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="103" value="10 : 返答内容を追加（response）" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" parent="1" edge="1">
+                    <mxGeometry y="-30" width="80" relative="1" as="geometry">
+                        <mxPoint x="650" y="690" as="sourcePoint"/>
+                        <mxPoint x="730" y="690" as="targetPoint"/>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="104" value=": Emotion AI" style="ellipse;shape=umlEntity;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="15" y="590" width="80" height="80" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
