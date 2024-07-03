@@ -2,6 +2,15 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin
 from datetime import datetime
 import pytz
+from dotenv import load_dotenv
+import os
+from openai import OpenAI
+
+client = OpenAI(
+    
+)
+
+
 
 db = SQLAlchemy()
 
@@ -36,39 +45,14 @@ class Diary(db.Model):
 class Chat(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-    start_time = db.Column(db.DateTime, default=lambda: datetime.now(pytz.timezone('Asia/Tokyo')))
-    end_time = db.Column(db.DateTime)
-    messages = db.Column(db.Text, nullable=True)
+    role = db.Column(db.String(30), nullable=True)
+    message = db.Column(db.Text, nullable=True)
+    time = db.Column(db.DateTime, default=lambda: datetime.now(pytz.timezone('Asia/Tokyo')))
 
-    def __init__(self, user_id:int):
-        self.user_id = user_id
-
-    def add_message(self, id:int, message:str):
-        chat = Chat.query.filter_by(id=id).first()
-        chat.messages += f'\n{message}'
-        db.session.commit()
-    
-    def get_messages(self, id:int):
-        chat = Chat.query.filter_by(id=id).first()
-        return chat.messages
-
-    def delete(self, id:int):
-        chat = Chat.query.filter_by(id=id).first()
-        db.session.delete(chat)
-        db.session.commit()
-
-class EmotionAI(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-    bot_name = db.Column(db.String(100), nullable=False)
-
-    def __init__(self, bot_name:str):
-        self.bot_name = bot_name
-
-    
-    
-    def analyze_emotion(self, diaryId:int):
-        diary = Diary.query.filter_by(id=diaryId).first()
-        body = diary.body
-        
+class EmotionAI():
+    def analyze_diary(self, body:str) -> tuple[str, str, int]:
         return f'Response for {body}!', 'happy', 90
+    
+    def generate_chat(self, messages:list[str]) -> str:
+        prompt = '\n'.join(messages)
+        return f'received {prompt}!'

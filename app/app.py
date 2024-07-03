@@ -138,10 +138,25 @@ def deleteDiary(diary_id):
     return redirect(url_for('diariesPage'))
 
 # ChatController
-@app.route("/chat")
+@app.route("/chat", methods=['GET', 'POST'])
 @login_required
 def chatPage():
-    return render_template('chat.html')
+    user_id = current_user.id
+    if request.method == 'GET':
+        chats = chatController.get_user_chat(user_id)
+        return render_template('chat.html', user_id=user_id, chats=chats)
+    
+    if request.method == 'POST':
+        message = request.form['message']
+        chatController.send_message(user_id, message)
+        return redirect(url_for('chatPage'))
+
+@app.route("/chat/delete")
+@login_required
+def deleteChat():
+    user_id = current_user.id
+    chatController.delete_chat(user_id)
+    return redirect(url_for('chatPage'))
 
 # AnalysisController
 @app.route("/analysis")

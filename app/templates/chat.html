@@ -2,5 +2,24 @@
 {% block content %}
 
 <h2>ChatPage</h2>
+<a href="/chat/delete">delete</a>
+{% for chat in chats %}
+<article>
+    {% if chat.role == "user" %}
+        <p>YOU</p>
+    {% elif chat.role == "assistant" %}
+        <p>ASSISTANT</p>
+    {% endif %}
+    <p>{{ chat.message }}</p>
+</article>
+--------------------------------</br>
+{% endfor %}
+
+<form method="POST">
+    <label for="message">message</label>
+    <textarea name="message" rows="5"></textarea>
+
+    <input type="submit" value="submit">
+</form>
 
 {% endblock %}

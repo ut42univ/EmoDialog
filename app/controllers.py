@@ -3,7 +3,6 @@ from sqlalchemy import desc
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_user, logout_user
 
-
 class UserController:
     def sign_up(self, username, password):
         user = User(username=username, password=generate_password_hash(password, method='pbkdf2:sha256'))
@@ -24,6 +23,8 @@ class UserController:
         return User.query.get(user_id)
 
 class DiaryController:
+    max_body_length = 500
+
     def create_diary(self, user_id:int, body:str):
         diary = Diary(user_id=user_id, body=body)
         db.session.add(diary)
@@ -69,28 +70,36 @@ class DiaryController:
         return diaries
 
 class ChatController:
-    def start_conversation(self, user_id):
-        chat = Chat(user_id=user_id)
+
+    def send_message(self, user_id, message):
+        chat = Chat(user_id=user_id, message=message, role='user')
         db.session.add(chat)
         db.session.commit()
 
-    def send_message(self, chat_id, message):
-        chat = Chat.query.get(chat_id)
-        if chat:
-            chat.messages = (chat.messages or '') + f"\n{message}"
-            db.session.commit()
+        chats = self.get_user_chat(user_id)
+        messages = [chat.message for chat in chats]
+        response = EmotionAI().generate_chat(messages)
 
-    def delete_conversation(self, chat_id):
-        chat = Chat.query.get(chat_id)
-        if chat:
-            db.session.delete(chat)
-            db.session.commit()
+        chat_response = Chat(user_id=user_id, message=response, role='assistant')
+        db.session.add(chat_response)
+        db.session.commit()
+
+    def get_user_chat(self, user_id) -> list:
+        chats = Chat.query.filter_by(user_id=user_id).all()
+        return chats
+
+    def delete_chat(self, user_id):
+        chats = Chat.query.filter_by(user_id=user_id).all()
+        if chats:
+            for chat in chats:
+                db.session.delete(chat)
+                db.session.commit()
 
 class AnalysisController:
     def analyze_diary(self, diary_id):
-        emotion_ai = EmotionAI(bot_name='Alice')
-        response, emotion, degree = emotion_ai.analyze_emotion(diary_id)
+        emotion_ai = EmotionAI()
         diary = Diary.query.get(diary_id)
+        response, emotion, degree = emotion_ai.analyze_diary(diary.body)
         diary.response = response
         diary.emotion = emotion
         diary.emotion_degree = degree
