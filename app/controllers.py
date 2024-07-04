@@ -78,7 +78,7 @@ class ChatController:
 
         chats = self.get_user_chat(user_id)
         messages = [chat.message for chat in chats]
-        response = EmotionAI().generate_chat(messages)
+        response = EmotionAI().generate_chat_response(messages)
 
         chat_response = Chat(user_id=user_id, message=response, role='assistant')
         db.session.add(chat_response)
