@@ -2,6 +2,10 @@ from models import db, User, Diary, Chat, EmotionAI
 from sqlalchemy import desc
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_user, logout_user
+import matplotlib
+import matplotlib.pyplot as plt 
+from io import BytesIO
+import base64
 
 class UserController:
     def sign_up(self, username, password):
@@ -11,10 +15,14 @@ class UserController:
 
     def login(self, username, password):
         user = User.query.filter_by(username=username).first()
-        if check_password_hash(user.password, password):
-            login_user(user)
-            return True
-        return False
+
+        # Check if the user exists and the password is correct
+        try:
+            if check_password_hash(user.password, password):
+                login_user(user)
+                return True
+        except:
+            return False
     
     def logout(self):
         logout_user()
@@ -96,6 +104,7 @@ class ChatController:
                 db.session.commit()
 
 class AnalysisController:
+
     def analyze_diary(self, diary_id):
         emotion_ai = EmotionAI()
         diary = Diary.query.get(diary_id)
@@ -104,3 +113,57 @@ class AnalysisController:
         diary.emotion = emotion
         diary.emotion_degree = degree
         db.session.commit()
+
+    def analysis_result(self, user_id):
+        diaries = Diary.query.filter_by(user_id=user_id).all()
+        create_at = [diary.create_at.strftime('%m/%d %H:%M') for diary in diaries]
+        emotions = [diary.emotion for diary in diaries]
+        emotion_degree = [diary.emotion_degree for diary in diaries]
+
+        matplotlib.use('Agg')
+        plt.style.use('ggplot')
+
+        # create graph
+        fig_1 = plt.figure(figsize=(15, 5))
+        ax_1 = fig_1.add_subplot(1,1,1)
+        ax_1.set_ylim(0, 100)
+        ax_1.plot(create_at, emotion_degree, color='indigo',  linestyle='--', linewidth = 2.0, marker='o') 
+        ax_1.set_xlabel("Create At")
+        ax_1.set_ylabel("Emotion Degree")
+        ax_1.fill_between(create_at, emotion_degree, 17, color='indigo', alpha=0.3)
+        for x, y, emotion in zip(create_at, emotion_degree, emotions):
+            ax_1.text(x, y+2, emotion, color="dimgray")    
+        ax_1.tick_params(labelbottom=True, labelleft=False)
+        ax_1.tick_params(bottom=False, left=False)
+        plt.box(False)
+        
+        io_1 = BytesIO()
+        fig_1.savefig(io_1, format='png')
+        io_1.seek(0)
+        base64_image_graph = base64.b64encode(io_1.read()).decode()
+        plt.clf()
+        plt.close(fig_1)
+        io_1.close()
+
+        # create pie chart
+        emotions_list = list(set(emotions))
+        emotions_size = [emotions.count(emotion) for emotion in emotions_list]
+
+        cmap=plt.get_cmap("tab20b")
+        colors = [cmap(i) for i in range(len(emotions_size))]
+
+        fig_2 = plt.figure(figsize=(15, 5))
+        ax_2 = fig_2.add_subplot(1,1,1)
+        ax_2.pie(emotions_size, labels=emotions_list, autopct='%1.1f%%', startangle=90, colors=colors)
+        ax_2.axis('equal')
+        plt.box(False)
+
+        io_2 = BytesIO()
+        fig_2.savefig(io_2, format='png')
+        io_2.seek(0)
+        base64_image_pie = base64.b64encode(io_2.read()).decode()
+        plt.clf()
+        plt.close(fig_2)
+        io_2.close()
+
+        return base64_image_graph, base64_image_pie

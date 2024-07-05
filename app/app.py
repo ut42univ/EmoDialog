@@ -7,7 +7,7 @@ from functools import wraps
 
 from flask_login import LoginManager, login_required, current_user
 
-
+# initialize app
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///diary_app.db'
 app.config['SECRET_KEY'] = os.urandom(24)
@@ -20,11 +20,13 @@ db.init_app(app)
 with app.app_context():
     db.create_all()
 
+# Controllers
 userController = UserController()
 diaryController = DiaryController()
 chatController = ChatController()
 analysisController = AnalysisController()
 
+# Decorator for checking if the user is the owner of the diary
 def diary_owner_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
@@ -42,24 +44,7 @@ def load_user(user_id):
 def unauthorized():
     return redirect(url_for('loginPage'))
 
-@app.route("/")
-@login_required
-def indexPage():
-    username = current_user.username
-    return render_template('index.html', username=username)
-
-@app.route("/signup", methods=['GET', 'POST'])
-def signUpPage():
-    if request.method == 'GET':
-        return render_template('sign_up.html')
-
-    if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
-        userController.sign_up(username, password)
-
-        return redirect(url_for('loginPage'))
-
+# Unauthenticated routes
 @app.route("/login", methods=['GET', 'POST'])
 def loginPage():
     if request.method == 'GET':
@@ -79,10 +64,27 @@ def loginPage():
 def logout():
     userController.logout()
     return redirect(url_for('loginPage'))
+    
+@app.route("/signup", methods=['GET', 'POST'])
+def signUpPage():
+    if request.method == 'GET':
+        return render_template('sign_up.html')
 
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        userController.sign_up(username, password)
 
-        
+        return redirect(url_for('loginPage'))
 
+# Authenticated routes
+@app.route("/")
+@login_required
+def indexPage():
+    username = current_user.username
+    return render_template('index.html', username=username)
+
+# DiaryController
 @app.route("/create_diary", methods=['GET', 'POST'])
 @login_required
 def createDiaryPage():
@@ -99,7 +101,6 @@ def createDiaryPage():
      
         return redirect(url_for('diariesPage'))
 
-# DiaryController
 @app.route("/diaries")
 @login_required
 def diariesPage():
@@ -162,7 +163,10 @@ def deleteChat():
 @app.route("/analysis")
 @login_required
 def analysisPage():
-    return render_template('analysis.html')
+    user_id = current_user.id
+    graph, pie = analysisController.analysis_result(user_id)
+
+    return render_template('analysis.html', graph=graph, pie=pie)
 
 
 if __name__ == ('__main__'):
