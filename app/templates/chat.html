@@ -2,7 +2,7 @@
 {% block content %}
 
 <h2>ChatPage</h2>
-<a href="/chat/delete">delete</a>
+<a href="/chat/delete" class="btn btn-danger">delete</a>
 {% for chat in chats %}
 <article>
     {% if chat.role == "user" %}
@@ -19,7 +19,7 @@
     <label for="message">message</label>
     <textarea name="message" rows="5"></textarea>
 
-    <input type="submit" value="submit">
+    <input class="btn btn-primary" type="submit" value="Send">
 </form>
 
 {% endblock %}

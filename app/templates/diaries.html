@@ -1,22 +1,31 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2>DiariesPage</h2>
+<h2 class="text-center p-3">日記の一覧</h2>
+
 {% for diary in diaries %}
-<article>
-    <p>created at</p>
-    <p>{{ diary.create_at }}</p>
-    <p>updated at</p>
-    <p>{{ diary.update_at }}</p>
-    <p>body</p>
-    {% if diary.body != "" %}
-        <p>{{ diary.body }}</p>
-    {% else %}
-        <p>No Description</p>
-    {% endif %}
-    <a href="/diaries/{{ diary.id }}">detail</a>
-</article>
---------------------------------</br>
+<div class="card mx-auto mb-4 shadow-sm" style="max-width: 48rem;">
+    <div class="card-header">{{ diary.create_at.strftime('%Y/%m/%d %H:%M') }}</div>
+    <div class="card-body">
+        <h5 class="card-title mb-2">{{ diary.emotion }}</h5>
+        <div class="progress mb-2" role="progressbar">
+            <div class="progress-bar bg-success" style='width: {{ diary.emotion_degree }}%'>{{ diary.emotion_degree }}%</div>
+        </div>
+        {% if diary.body != "" %}
+            <div class="card-text mb-2 overflow-hidden">
+                {{ diary.body }}
+            </div>
+            <div class="card-text mb-2 overflow-hidden">
+                {{ diary.response }}
+            </div>
+        {% else %}
+            <div class="card-text">
+                No Description
+            </div>
+        {% endif %}
+        <a href="/diaries/{{ diary.id }}" class="btn btn-outline-primary my-2">See Detail</a>
+    </div>
+</div>
 {% endfor %}
 
 {% endblock %}

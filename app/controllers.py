@@ -124,7 +124,7 @@ class AnalysisController:
         plt.style.use('ggplot')
 
         # create graph
-        fig_1 = plt.figure(figsize=(15, 5))
+        fig_1 = plt.figure(figsize=(16, 9), dpi=300)
         ax_1 = fig_1.add_subplot(1,1,1)
         ax_1.set_ylim(0, 100)
         ax_1.plot(create_at, emotion_degree, color='indigo',  linestyle='--', linewidth = 2.0, marker='o') 
@@ -152,7 +152,9 @@ class AnalysisController:
         cmap=plt.get_cmap("tab20b")
         colors = [cmap(i) for i in range(len(emotions_size))]
 
-        fig_2 = plt.figure(figsize=(15, 5))
+        plt.rcParams['font.size'] = 16.0
+
+        fig_2 = plt.figure(figsize=(16, 9) ,dpi=300)
         ax_2 = fig_2.add_subplot(1,1,1)
         ax_2.pie(emotions_size, labels=emotions_list, autopct='%1.1f%%', startangle=90, colors=colors)
         ax_2.axis('equal')

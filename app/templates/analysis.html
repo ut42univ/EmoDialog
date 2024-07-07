@@ -1,9 +1,27 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2>AnalysisPage</h2>
-<p>Here is the analysis page</p>
-<img src="data:image/png;base64,{{ graph }}" />
-<img src="data:image/png;base64,{{ pie }}" />
+<h2 class="text-center p-3">感情分析集計グラフ</h2>
+
+
+
+<div class="graph mx-auto" style="max-width: 80rem;">
+    <div class="card mb-5 shadow-sm rounded-4">
+        <img src="data:image/png;base64,{{ graph }}" class="img-fluid rounded-4"/>
+        <div class="card-body pt-3 border-top">
+            <h4 class="card-title">Card title</h4>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <p class="card-text"><small class="text-body-secondary">グラフはmatplotlibによりページ更新時に生成</small></p>
+        </div>
+    </div>
+    <div class="card mb-5 shadow-sm rounded-4">
+        <img src="data:image/png;base64,{{ pie }}" class="img-fluid rounded-4"/>
+        <div class="card-body pt-3 border-top">
+            <h4 class="card-title">Card title</h4>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <p class="card-text"><small class="text-body-secondary">グラフはmatplotlibによりページ更新時に生成</small></p>
+        </div>
+    </div>
+</div>
 
 {% endblock %}

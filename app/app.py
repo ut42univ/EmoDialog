@@ -2,6 +2,7 @@ import os
 from controllers import UserController, DiaryController, ChatController, AnalysisController
 from models import db
 from flask import Flask
+from flask_bootstrap import Bootstrap5
 from flask import render_template, request, redirect, url_for, abort
 from functools import wraps
 
@@ -11,6 +12,8 @@ from flask_login import LoginManager, login_required, current_user
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///diary_app.db'
 app.config['SECRET_KEY'] = os.urandom(24)
+
+bootstrap = Bootstrap5(app)
 
 login_manager = LoginManager()
 login_manager.init_app(app)

@@ -1,12 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2>CreateDiaryPage</h2>
-<form method="POST">
-    <label for="body">body</label>
-    <textarea name="body" rows="5"></textarea>
-
-    <input type="submit" value="submit">
-</form>
+<h2 class="text-center p-3">新たに日記を書く</h2>
+<div class="mx-auto text-center" style="max-width: 48rem;">
+    <form method="POST" id="createDiaryForm">
+        <div class="form-floating">
+            <textarea class="form-control" placeholder="日記の本文を入力" name="body" id="diaryBody" style="height: 256px;"></textarea>
+            <label for="floatingTextArea">Write diary here</label>
+            <input class="btn btn-primary w-50 py-2 m-3" type="submit" value="Create New Diary" id="create_diary">
+        </div>
+    </form>
+</div>
 
 {% endblock %}

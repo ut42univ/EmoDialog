@@ -1,11 +1,56 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2>Welcome {{ username }}. IndexPage</h2>
+<h1 class="display-2 text-center pt-5 m-5">
+    EmotionAI
+    <small class="text-body-secondary">for the rest of us.</small>
+</h1>
+<h2 class="text-center mb-3">ようこそ、{{ username }}さん。</h2>
 
-<a href="/create_diary">Visit CreateDiaryPage</a>
-<a href="/diaries">Visit DiariesPage</a>
-<a href="/chat">Visit ChatPage</a>
-<a href="/analysis">Visit AnalysisPage</a>
+<div class="container px-4 py-5" id="custom-cards">
+    <h2 class="pb-2 border-bottom">ホーム</h2>
+
+    <div class="row row-cols-1 row-cols-lg-2 align-items-stretch g-4 py-5">
+        <div class="col">
+            <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('unsplash-photo-1.jpg');">
+                <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                    <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Write New Diary</h3>
+                    <h4 class="pt-3 mb-4 lh-1">日記を新規作成する</h4>
+                    <a href="/create_diary" class="btn btn-outline-primary stretched-link">Open</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('unsplash-photo-2.jpg');">
+                <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                    <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">See All Diaries</h3>
+                    <h4 class="pt-3 mb-4 lh-1">日記を見る</h4>
+                    <a href="/diaries" class="btn btn-outline-primary stretched-link">Open</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('unsplash-photo-2.jpg');">
+                <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                    <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Chat with EmotionAI</h3>
+                    <h4 class="pt-3 mb-4 lh-1">EmotionAIと会話する</h4>
+                    <a href="/chat" class="btn btn-outline-primary stretched-link">Open</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('unsplash-photo-2.jpg');">
+                <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                    <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Analysis Result</h3>
+                    <h4 class="pt-3 mb-4 lh-1">感情分析結果を見る</h4>
+                    <a href="/analysis" class="btn btn-outline-primary stretched-link">Open</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
