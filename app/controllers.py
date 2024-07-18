@@ -6,6 +6,7 @@ import matplotlib
 import matplotlib.pyplot as plt 
 from io import BytesIO
 import base64
+import asyncio
 
 class UserController:
     def sign_up(self, username, password):

@@ -12,8 +12,10 @@
             <div class="progress-bar bg-success" style='width: {{ diary.emotion_degree }}%'>{{ diary.emotion_degree }}%</div>
         </div>
         {% if diary.body != "" %}
-            <div class="card-text mb-2 overflow-hidden">
-                {{ diary.body }}
+            <div class="card bg-body-tertiary my-3">
+                <div class="card-text m-2 overflow-hidden">
+                    {{ diary.body }}
+                </div>
             </div>
             <div class="card-text mb-2 overflow-hidden">
                 {{ diary.response }}

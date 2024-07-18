@@ -6,8 +6,8 @@
 
 
 <div class="card mx-auto mb-4 shadow-sm" style="max-width: 64rem;">
-    <div class="card-header">作成日時: {{ diary.create_at.strftime('%Y/%m/%d %H:%M') }}</div>
-    <div class="card-header">最終更新: {{ diary.update_at.strftime('%Y/%m/%d %H:%M') }}</div>
+    <div class="card-header">日記管理ID: {{ diary.id }}（ユーザーID: {{ diary.user_id }}）</div>
+    <div class="card-header">作成日時: {{ diary.create_at.strftime('%Y/%m/%d %H:%M') }}（最終更新: {{ diary.update_at.strftime('%Y/%m/%d %H:%M') }}）</div>
     <div class="card-body">
         <div class="emotion mb-3">
             <h5 class="card-title mb-2">感情: {{ diary.emotion }}</h5>
@@ -46,58 +46,17 @@
         {% endif %}
         <div class="text-end">
             <div class="btn-group my-2" role="group">
-                <a href="/diaries/{{ diary.id }}/edit" class="btn btn-secondary">Edit</a>
+                <a href="/diaries/{{ diary.id }}/edit" class="btn btn-secondary" id="edit_diary">Edit</a>
                 <a href="/diaries/{{ diary.id }}/delete" class="btn btn-danger" id="delete_diary">Delete</a>
             </div>
         </div>
     </div>
 </div>
 
-<article>
-    <p>id</p>
-    <p>{{ diary.id }}</p>
+<div id="diary_body" value="{{ diary.body }}"></div>
+<div id="diary_id" value="{{ diary.id }}"></div>
+{% endblock %}
 
-    <p>user_id</p>
-    <p>{{ diary.user_id }}</p>
-
-    <p>create at</p>
-    <p>{{ diary.create_at }}</p>
-
-    <p>update at</p>
-    <p>{{ diary.update_at }}</p>
-
-    <p>body</p>
-    {% if diary.body != "" %}
-        <p>{{ diary.body }}</p>
-    {% else %}
-        <p>No Description</p>
-    {% endif %}
-
-    <p>response</p>
-    {% if diary.response != "" %}
-        <p>{{ diary.response }}</p>
-    {% else %}
-        <p>No Response</p>
-    {% endif %}
-
-    <p>emotion</p>
-    {% if diary.emotion != "" %}
-        <p>{{ diary.emotion }}</p>
-    {% else %}
-        <p>No Emotion</p>
-    {% endif %}
-
-    <p>emotion_degree</p>
-    {% if diary.emotion_degree != "" %}
-        <p>{{ diary.emotion_degree }}</p>
-    {% else %}
-        <p>No Emotion Degree</p>
-    {% endif %}
-    <div class="btn-group" role="group">
-        <a href="/diaries/{{ diary.id }}/edit" class="btn btn-secondary">Edit</a>
-        <a href="/diaries/{{ diary.id }}/delete" class="btn btn-danger" id="delete_diary">Delete</a>
-    </div>
-</article>
-
-<div id="diaryBody" data-message="{{ diary.body }}"></div>
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/diary.js') }}"></script>
 {% endblock %}

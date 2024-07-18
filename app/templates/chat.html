@@ -1,25 +1,49 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2>ChatPage</h2>
-<a href="/chat/delete" class="btn btn-danger">delete</a>
-{% for chat in chats %}
-<article>
-    {% if chat.role == "user" %}
-        <p>YOU</p>
-    {% elif chat.role == "assistant" %}
-        <p>ASSISTANT</p>
-    {% endif %}
-    <p>{{ chat.message }}</p>
-</article>
---------------------------------</br>
-{% endfor %}
+<h2 class="text-center p-3">EmotionAIと会話する</h2>
 
-<form method="POST">
-    <label for="message">message</label>
-    <textarea name="message" rows="5"></textarea>
+<div class="mx-auto" style="max-width: 48rem;">
+    <div class="text-end">
+        <a href="/chat/delete" class="btn my-2 btn-danger" id="delete_chat">会話を終了する</a>
+    </div>
+    {% for chat in chats %}
+    
+    <div class="card mb-4 shadow-sm rounded-4" style="max-width: 48rem;">
+        <div class="card-body">
+            <h5 class="card-title mb-2">
+                {% if chat.role == "user" %}
+                    あなた
+                {% elif chat.role == "assistant" %}
+                    EmotionAI
+                {% endif %}
+            </h5>
+            <div class="card bg-body-tertiary my-3">
+                <div class="card-text m-2 overflow-hidden">
+                    {{ chat.message }}
+                </div>
+            </div>
+            <div class="text-end">
+                {{ chat.time.strftime('%Y/%m/%d %H:%M') }}
+            </div>
+        </div>
+    </div>
+    
+    {% endfor %}
+    
+    <div class="text-center" style="max-width: 48rem;">
+        <form method="POST" id="createDiaryForm">
+            <div class="form-floating">
+                <textarea class="form-control rounded-4" placeholder="質問内容を追加" name="message" id="diaryBody" style="height: 128px;"></textarea>
+                <label for="floatingTextArea">Add Message</label>
+                <input class="btn btn-primary w-50 py-2 m-3" type="submit" value="Send to EmotionAI" id="send">
+            </div>
+        </form>
+    </div>
+</div>
 
-    <input class="btn btn-primary" type="submit" value="Send">
-</form>
+{% endblock %}
 
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/chat.js') }}"></script>
 {% endblock %}
