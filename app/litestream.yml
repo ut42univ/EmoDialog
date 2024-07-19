@@ -1,0 +1,6 @@
+dbs:
+  - path: instance/diary_app.db
+    replicas:
+      - type: gcs
+        bucket: emodialog_litestream
+        path: diary_app.db
