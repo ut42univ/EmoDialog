@@ -1,6 +1,6 @@
-# Project Name
+# EmoDialog
 
-## Description
+## 概要
 
 A brief description of your project.
 

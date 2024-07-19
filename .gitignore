@@ -3,3 +3,5 @@ app/instance/*.db
 instance/*.db
 app/__pycache__/
 __pycache__/
+app/app.yaml
+app/.gcloudignore
