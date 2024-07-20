@@ -1,6 +1,6 @@
 import os
 from controllers import UserController, DiaryController, ChatController, AnalysisController
-from models import db
+from models import db, OperationalError
 from flask import Flask
 from flask_bootstrap import Bootstrap5
 from flask import render_template, request, redirect, url_for, abort
@@ -21,7 +21,10 @@ login_manager.login_view = 'loginPage'
 
 db.init_app(app)
 with app.app_context():
-    db.create_all()
+    try:
+        db.create_all()
+    except OperationalError:
+        pass
 
 # Controllers
 userController = UserController()

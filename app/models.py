@@ -1,4 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.exc import OperationalError
 from flask_login import UserMixin
 from datetime import datetime
 import pytz
