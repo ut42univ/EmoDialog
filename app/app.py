@@ -10,7 +10,7 @@ from flask_login import LoginManager, login_required, current_user
 
 # initialize app
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///diary_app.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///sample_app.db'
 app.config['SECRET_KEY'] = os.urandom(24)
 
 bootstrap = Bootstrap5(app)
