@@ -30,39 +30,14 @@
   </a>
 
   <h3 align="center">EmoDialog</h3>
-  <h5 align="center">EmotionAI for the rest of us.</h5> 
-
+  <h4 align="center">EmotionAI for the rest of us.</h4> 
+  <br />
   <p align="center">
     AI日記アプリ
     <br />
     A Personalized Diary App with Generative AI
   </p>
 </div>
-
-
-
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>目次（Table of Contents）</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">プロジェクトについて（About The Project）</a>
-      <ul>
-        <li><a href="#built-with">技術スタック（Built With）</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">はじめに（Getting Started）</a>
-      <ul>
-        <li><a href="#installation">導入（Installation）</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">使用方法（Usage）</a></li>
-    <li><a href="#license">ライセンス（License）</a></li>
-  </ol>
-</details>
-
-
 
 <!-- ABOUT THE PROJECT -->
 ## プロジェクトについて（About The Project）

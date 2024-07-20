@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 from io import BytesIO
 import base64
 import asyncio
+import datetime
 
 class UserController:
     def sign_up(self, username, password):
@@ -34,13 +35,16 @@ class UserController:
 class DiaryController:
     max_body_length = 500
 
-    def create_diary(self, user_id:int, body:str):
+    def __init__(self):
+        self.analysisController = AnalysisController()
+
+    async def create_diary(self, user_id:int, body:str):
         diary = Diary(user_id=user_id, body=body)
         db.session.add(diary)
         db.session.commit()
 
         diary_id = diary.id
-        AnalysisController().analyze_diary(diary_id)
+        await self.analysisController.analyze_diary(diary_id)
 
     def edit_diary(self, diary_id:int, new_body:str):
         diary = Diary.query.get(diary_id)
@@ -106,16 +110,70 @@ class ChatController:
 
 class AnalysisController:
 
-    def analyze_diary(self, diary_id):
-        emotion_ai = EmotionAI()
+    def __init__(self):
+        self.emotion_ai = EmotionAI()
+
+    async def analyze_diary(self, diary_id):
         diary = Diary.query.get(diary_id)
-        response, emotion, degree = emotion_ai.analyze_diary(diary.body)
+        response, emotion, degree = await self.emotion_ai.analyze_diary(diary.body)
         diary.response = response
         diary.emotion = emotion
         diary.emotion_degree = degree
         db.session.commit()
 
-    def analysis_result(self, user_id):
+    async def analysis_result(self, user_id):
+
+        async def create_graph():
+            # create graph
+            fig_1 = plt.figure(figsize=(16, 9), dpi=300)
+            ax_1 = fig_1.add_subplot(1,1,1)
+            ax_1.set_ylim(0, 100)
+            ax_1.plot(create_at, emotion_degree, color='indigo',  linestyle='--', linewidth = 2.0, marker='o') 
+            ax_1.set_xlabel("Create At")
+            ax_1.set_ylabel("Emotion Degree")
+            ax_1.fill_between(create_at, emotion_degree, 17, color='indigo', alpha=0.3)
+            for x, y, emotion in zip(create_at, emotion_degree, emotions):
+                ax_1.text(x, y+2, emotion, color="dimgray")    
+            ax_1.tick_params(labelbottom=True, labelleft=False)
+            ax_1.tick_params(bottom=False, left=False)
+            plt.box(False)
+            
+            io_1 = BytesIO()
+            fig_1.savefig(io_1, format='png')
+            io_1.seek(0)
+            base64_image_graph = base64.b64encode(io_1.read()).decode()
+            plt.clf()
+            plt.close(fig_1)
+            io_1.close()
+
+            return base64_image_graph
+        
+        async def create_pie_chart():
+            # create pie chart
+            emotions_list = list(set(emotions))
+            emotions_size = [emotions.count(emotion) for emotion in emotions_list]
+
+            cmap=plt.get_cmap("tab20b")
+            colors = [cmap(i) for i in range(len(emotions_size))]
+
+            plt.rcParams['font.size'] = 16.0
+
+            fig_2 = plt.figure(figsize=(16, 9) ,dpi=300)
+            ax_2 = fig_2.add_subplot(1,1,1)
+            ax_2.pie(emotions_size, labels=emotions_list, autopct='%1.1f%%', startangle=90, colors=colors)
+            ax_2.axis('equal')
+            plt.box(False)
+
+            io_2 = BytesIO()
+            fig_2.savefig(io_2, format='png')
+            io_2.seek(0)
+            base64_image_pie = base64.b64encode(io_2.read()).decode()
+            plt.clf()
+            plt.close(fig_2)
+            io_2.close()
+
+            return base64_image_pie
+        
         diaries = Diary.query.filter_by(user_id=user_id).all()
         create_at = [diary.create_at.strftime('%m/%d %H:%M') for diary in diaries]
         emotions = [diary.emotion for diary in diaries]
@@ -124,49 +182,9 @@ class AnalysisController:
         matplotlib.use('Agg')
         plt.style.use('ggplot')
 
-        # create graph
-        fig_1 = plt.figure(figsize=(16, 9), dpi=300)
-        ax_1 = fig_1.add_subplot(1,1,1)
-        ax_1.set_ylim(0, 100)
-        ax_1.plot(create_at, emotion_degree, color='indigo',  linestyle='--', linewidth = 2.0, marker='o') 
-        ax_1.set_xlabel("Create At")
-        ax_1.set_ylabel("Emotion Degree")
-        ax_1.fill_between(create_at, emotion_degree, 17, color='indigo', alpha=0.3)
-        for x, y, emotion in zip(create_at, emotion_degree, emotions):
-            ax_1.text(x, y+2, emotion, color="dimgray")    
-        ax_1.tick_params(labelbottom=True, labelleft=False)
-        ax_1.tick_params(bottom=False, left=False)
-        plt.box(False)
-        
-        io_1 = BytesIO()
-        fig_1.savefig(io_1, format='png')
-        io_1.seek(0)
-        base64_image_graph = base64.b64encode(io_1.read()).decode()
-        plt.clf()
-        plt.close(fig_1)
-        io_1.close()
+        create_graph_task = create_graph()
+        create_pie_chart_task = create_pie_chart()
 
-        # create pie chart
-        emotions_list = list(set(emotions))
-        emotions_size = [emotions.count(emotion) for emotion in emotions_list]
-
-        cmap=plt.get_cmap("tab20b")
-        colors = [cmap(i) for i in range(len(emotions_size))]
-
-        plt.rcParams['font.size'] = 16.0
-
-        fig_2 = plt.figure(figsize=(16, 9) ,dpi=300)
-        ax_2 = fig_2.add_subplot(1,1,1)
-        ax_2.pie(emotions_size, labels=emotions_list, autopct='%1.1f%%', startangle=90, colors=colors)
-        ax_2.axis('equal')
-        plt.box(False)
-
-        io_2 = BytesIO()
-        fig_2.savefig(io_2, format='png')
-        io_2.seek(0)
-        base64_image_pie = base64.b64encode(io_2.read()).decode()
-        plt.clf()
-        plt.close(fig_2)
-        io_2.close()
+        base64_image_graph, base64_image_pie = await asyncio.gather(create_graph_task, create_pie_chart_task)
 
         return base64_image_graph, base64_image_pie

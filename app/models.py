@@ -6,12 +6,10 @@ import pytz
 from dotenv import load_dotenv
 from openai import OpenAI
 import json
+import asyncio
 
 load_dotenv()
 db = SQLAlchemy()
-client = OpenAI()
-
-from openai import OpenAI
 client = OpenAI()
 
 # Entity classes
@@ -66,12 +64,15 @@ class EmotionAI():
         {"emotion": strings, "emotion_degree": integer}
         """
 
-    def analyze_diary(self, body:str) -> tuple[str, str, int]:
-        response = self.generate_diary_response(body)
-        emotion, emotion_degree = self.generate_analysis_response(body)
+    async def analyze_diary(self, body:str) -> tuple[str, str, int]:
+        response_task = self.generate_diary_response(body)
+        analysis_task = self.generate_analysis_response(body)
+
+        response, (emotion, emotion_degree) = await asyncio.gather(response_task, analysis_task)
+        
         return response, emotion, emotion_degree
     
-    def generate_diary_response(self, body:str) -> str:
+    async def generate_diary_response(self, body:str) -> str:
         completion = client.chat.completions.create(
             model=self.gpt_model,
             messages=[
@@ -81,7 +82,7 @@ class EmotionAI():
         )
         return completion.choices[0].message.content
 
-    def generate_analysis_response(self, body:str) -> tuple[str, int]:
+    async def generate_analysis_response(self, body:str) -> tuple[str, int]:
         completion = client.chat.completions.create(
             model=self.gpt_model,
             response_format={ "type": "json_object" },

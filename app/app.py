@@ -93,7 +93,7 @@ def indexPage():
 # DiaryController
 @app.route("/create_diary", methods=['GET', 'POST'])
 @login_required
-def createDiaryPage():
+async def createDiaryPage():
     if request.method == 'GET':
         return render_template('create_diary.html')
     
@@ -103,7 +103,7 @@ def createDiaryPage():
         if len(body) == 0:
             return 'body needs strings.'
         else:    
-            diaryController.create_diary(current_user.id, body)
+            await diaryController.create_diary(current_user.id, body)
      
         return redirect(url_for('diariesPage'))
 
@@ -168,9 +168,9 @@ def deleteChat():
 # AnalysisController
 @app.route("/analysis")
 @login_required
-def analysisPage():
+async def analysisPage():
     user_id = current_user.id
-    graph, pie = analysisController.analysis_result(user_id)
+    graph, pie = await analysisController.analysis_result(user_id)
 
     return render_template('analysis.html', graph=graph, pie=pie)
 
