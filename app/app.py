@@ -139,6 +139,8 @@ def editDiaryPage(diary_id):
 @login_required
 def diariesPage():
     diaries = diaryController.get_user_diaries(current_user.id)
+    if not diaries:
+        flash('警告: 日記が記録されていません。')
     return render_template('diaries.html', diaries=diaries)
 
 @app.route("/diaries/<int:diary_id>")
@@ -186,6 +188,11 @@ def deleteChat():
 @login_required
 def analysisPage():
     user_id = current_user.id
+    diaries = diaryController.get_user_diaries(user_id)
+
+    if not diaries:
+        flash('警告: 日記が記録されていないため、感情分析結果を表示できません。')
+
     graph, pie = asyncio.run(analysisController.analysis_result(user_id))
 
     return render_template('analysis.html', graph=graph, pie=pie)

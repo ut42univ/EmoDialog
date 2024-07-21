@@ -3,9 +3,22 @@
 
 <h2 class="text-center p-3">感情分析集計グラフ</h2>
 
-
-
 <div class="graph mx-auto" style="max-width: 80rem;">
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                {% if '確認' in message %}
+                    <div class="alert alert-success text-start" role="alert">
+                        {{ message }}
+                    </div>
+                {% else %}
+                    <div class="alert alert-danger text-start" role="alert">
+                        {{ message }}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
     <div class="card mb-5 shadow-sm rounded-4">
         <img src="data:image/png;base64,{{ graph }}" class="img-fluid rounded-4"/>
         <div class="card-body pt-3 border-top">
