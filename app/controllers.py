@@ -10,26 +10,38 @@ import asyncio
 import datetime
 
 class UserController:
-    def sign_up(self, username, password):
-        user = User(username=username, password=generate_password_hash(password, method='pbkdf2:sha256'))
-        db.session.add(user)
-        db.session.commit()
-
-    def login(self, username, password):
-        user = User.query.filter_by(username=username).first()
-
-        # Check if the user exists and the password is correct
+    def sign_up(self, username:str, password:str) -> bool:
+        
+        # create a new user and add it to the database if the username is unique
         try:
+            user = User(username=username, password=generate_password_hash(password, method='pbkdf2:sha256'))
+            db.session.add(user)
+            db.session.commit()
+            return True
+        except:
+            return False
+
+    def login(self, username:str, password:str) -> bool:
+        
+        # Check if the user exists
+        # Check if the password is correct
+        try:
+            user = User.query.filter_by(username=username).first()
             if check_password_hash(user.password, password):
                 login_user(user)
                 return True
+            else:
+                # password is incorrect
+                return False
         except:
+            # user does not exist
             return False
+
     
-    def logout(self):
+    def logout(self) -> None:
         logout_user()
     
-    def user_load_control(self, user_id):
+    def user_load_control(self, user_id:int) -> User:
         return User.query.get(user_id)
 
 class DiaryController:
@@ -38,7 +50,7 @@ class DiaryController:
     def __init__(self):
         self.analysisController = AnalysisController()
 
-    async def create_diary(self, user_id:int, body:str):
+    async def create_diary(self, user_id:int, body:str) -> None:
         diary = Diary(user_id=user_id, body=body)
         db.session.add(diary)
         db.session.commit()
@@ -46,22 +58,22 @@ class DiaryController:
         diary_id = diary.id
         await self.analysisController.analyze_diary(diary_id)
 
-    def edit_diary(self, diary_id:int, new_body:str):
+    def edit_diary(self, diary_id:int, new_body:str) -> None:
         diary = Diary.query.get(diary_id)
         if diary:
             diary.body = new_body
             db.session.commit()
 
             diary_id = diary.id
-            AnalysisController().analyze_diary(diary_id)
+            self.analysisController.analyze_diary(diary_id)
 
-    def delete_diary(self, diary_id):
+    def delete_diary(self, diary_id:int) -> None:
         diary = Diary.query.get(diary_id)
         if diary:
             db.session.delete(diary)
             db.session.commit()
 
-    def is_diary_owner(self, diary_id, user_id):
+    def is_diary_owner(self, diary_id:int, user_id:int) -> bool:
         diary = Diary.query.get(diary_id)
         try:
             if diary.user_id == user_id:
@@ -70,28 +82,31 @@ class DiaryController:
             return False
         return False
 
-    def get_diary(self, diary_id):
+    def get_diary(self, diary_id:int) -> Diary:
         diary = Diary.query.get(diary_id)
         return diary
     
-    def get_user_diaries(self, user_id: int):
+    def get_user_diaries(self, user_id:int) -> list:
         diaries = Diary.query.order_by(desc(Diary.create_at)).filter_by(user_id=user_id).all()
         return diaries
     
-    def get_all_diaries(self):
+    def get_all_diaries(self) -> list:
         diaries = Diary.query.order_by(desc(Diary.create_at)).all()
         return diaries
 
 class ChatController:
 
-    def send_message(self, user_id, message):
+    def __init__(self):
+        self.emotion_ai = EmotionAI()
+
+    def send_message(self, user_id:int, message:str):
         chat = Chat(user_id=user_id, message=message, role='user')
         db.session.add(chat)
         db.session.commit()
 
         chats = self.get_user_chat(user_id)
         messages = [chat.message for chat in chats]
-        response = EmotionAI().generate_chat_response(messages)
+        response = self.emotion_ai.generate_chat_response(messages)
 
         chat_response = Chat(user_id=user_id, message=response, role='assistant')
         db.session.add(chat_response)
@@ -128,11 +143,13 @@ class AnalysisController:
             fig_1 = plt.figure(figsize=(16, 9), dpi=300)
             ax_1 = fig_1.add_subplot(1,1,1)
             ax_1.set_ylim(0, 100)
-            ax_1.plot(create_at, emotion_degree, color='indigo',  linestyle='--', linewidth = 2.0, marker='o') 
+            ax_1.plot(range(len(create_at)), emotion_degree, color='indigo', linestyle='--', linewidth=2.0, marker='o')
             ax_1.set_xlabel("Create At")
             ax_1.set_ylabel("Emotion Degree")
-            ax_1.fill_between(create_at, emotion_degree, 17, color='indigo', alpha=0.3)
-            for x, y, emotion in zip(create_at, emotion_degree, emotions):
+            ax_1.fill_between(range(len(create_at)), emotion_degree, 17, color='indigo', alpha=0.3)
+            ax_1.set_xticks(range(len(create_at)))
+            ax_1.set_xticklabels(create_at)
+            for x, y, emotion in zip(range(len(create_at)), emotion_degree, emotions):
                 ax_1.text(x, y+2, emotion, color="dimgray")    
             ax_1.tick_params(labelbottom=True, labelleft=False)
             ax_1.tick_params(bottom=False, left=False)

@@ -3,7 +3,7 @@ from controllers import UserController, DiaryController, ChatController, Analysi
 from models import db, OperationalError
 from flask import Flask
 from flask_bootstrap import Bootstrap5
-from flask import render_template, request, redirect, url_for, abort
+from flask import render_template, request, redirect, url_for, abort, flash
 from functools import wraps
 
 from flask_login import LoginManager, login_required, current_user
@@ -59,15 +59,18 @@ def loginPage():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
+        is_success = userController.login(username, password)
+        
+        if not is_success:
+            flash('認証失敗: Userが存在しないか、Passwordが間違っています。')
+            return redirect(url_for('loginPage'))
 
-        if userController.login(username, password):
-            return redirect(url_for('indexPage'))
-        else:
-            return 'Invalid username or password'
+        return redirect(url_for('indexPage'))
 
 @app.route("/logout")
 @login_required
 def logout():
+    flash(f'確認: ログアウトしました。')
     userController.logout()
     return redirect(url_for('loginPage'))
     
@@ -79,8 +82,13 @@ def signUpPage():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
-        userController.sign_up(username, password)
+        is_success = userController.sign_up(username, password)
 
+        if not is_success:
+            flash('エラー: このユーザー名はすでに使用されています。')
+            return redirect(url_for('signUpPage'))
+
+        flash('確認: ユーザー登録が完了しました。利用するにはログインしてください。')
         return redirect(url_for('loginPage'))
 
 # Authenticated routes

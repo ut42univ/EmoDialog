@@ -1,11 +1,26 @@
 {% extends "base_unauthorized.html" %}
 {% block content %}
 
+
 <div class="d-flex align-items-center justify-content-center m-5 py-3">
     <div class="form-signin w-50 h-50">
         <form method="POST">
             <h1 class="h3 mb-3 fw-normal">User Login</h1>
-        
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        {% if '確認' in message %}
+                            <div class="alert alert-success" role="alert">
+                                {{ message }}
+                            </div>
+                        {% else %}
+                            <div class="alert alert-danger" role="alert">
+                                {{ message }}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
             <div class="form-floating mb-3">
                 <input type="text" class="form-control" name="username" placeholder="Username">
                 <label for="floatingInput">User Name</label>

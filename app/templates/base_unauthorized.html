@@ -35,8 +35,12 @@
     <main>
         {% block content %}
         {% endblock %}
+
+        <!-- モーダルエリア -->
+        {% include 'components/confirm_modal.html' %}
     </main>
 
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>    
     {{ bootstrap.load_js() }}
     {% block extra_js %}
     {% endblock %}
