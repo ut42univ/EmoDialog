@@ -5,6 +5,7 @@ from flask import Flask
 from flask_bootstrap import Bootstrap5
 from flask import render_template, request, redirect, url_for, abort, flash
 from functools import wraps
+import asyncio
 
 from flask_login import LoginManager, login_required, current_user
 
@@ -101,18 +102,37 @@ def indexPage():
 # DiaryController
 @app.route("/create_diary", methods=['GET', 'POST'])
 @login_required
-async def createDiaryPage():
+def createDiaryPage():
     if request.method == 'GET':
         return render_template('create_diary.html')
     
     if request.method == 'POST':
         body = request.form['body']
+        is_success = asyncio.run(diaryController.create_diary(current_user.id, body))
 
-        if len(body) == 0:
-            return 'body needs strings.'
-        else:    
-            await diaryController.create_diary(current_user.id, body)
-     
+        if not is_success:
+            flash('エラー: 日記本文は1字以上500文字以内で入力してください。')
+            return render_template('create_diary.html', body=body)
+        flash('確認: 日記を作成しました。')
+        return redirect(url_for('diariesPage'))
+
+@app.route("/diaries/<int:diary_id>/edit", methods=['GET', 'POST'])
+@login_required
+@diary_owner_required
+def editDiaryPage(diary_id):
+    if request.method == 'GET':
+        diary = diaryController.get_diary(diary_id)
+        body = diary.body
+        return render_template('edit_diary.html', body=body)
+    
+    if request.method == 'POST':
+        new_body = request.form['body']
+        is_success = asyncio.run(diaryController.edit_diary(diary_id, new_body))
+
+        if not is_success:
+            flash('エラー: 日記本文は1字以上500文字以内で入力してください。')
+            return render_template('edit_diary.html', body=new_body)
+        flash(f'確認: 日記を編集しました。（日記ID: {diary_id}）')
         return redirect(url_for('diariesPage'))
 
 @app.route("/diaries")
@@ -128,28 +148,12 @@ def diaryPage(diary_id):
     diary = diaryController.get_diary(diary_id)
     return render_template('diary.html', diary=diary)
 
-@app.route("/diaries/<int:diary_id>/edit", methods=['GET', 'POST'])
-@login_required
-@diary_owner_required
-def editDiaryPage(diary_id):
-    if request.method == 'GET':
-        diary = diaryController.get_diary(diary_id)
-        return render_template('edit_diary.html', diary=diary)
-    
-    if request.method == 'POST':
-        new_body = request.form['body']
-
-        if len(new_body) == 0:
-            return 'body needs strings.'
-        else:
-            diaryController.edit_diary(diary_id, new_body)
-            return redirect(url_for('diariesPage'))
-
 @app.route("/diaries/<int:diary_id>/delete")
 @login_required
 @diary_owner_required
 def deleteDiary(diary_id):
     diaryController.delete_diary(diary_id)
+    flash(f'確認: 日記を削除しました。（日記ID: {diary_id}）')
     return redirect(url_for('diariesPage'))
 
 # ChatController
@@ -163,7 +167,10 @@ def chatPage():
     
     if request.method == 'POST':
         message = request.form['message']
-        chatController.send_message(user_id, message)
+        is_success = chatController.send_message(user_id, message)
+
+        if not is_success:
+            flash('エラー: メッセージは1字以上200文字以内で入力してください。')
         return redirect(url_for('chatPage'))
 
 @app.route("/chat/delete")
@@ -171,14 +178,15 @@ def chatPage():
 def deleteChat():
     user_id = current_user.id
     chatController.delete_chat(user_id)
+    flash('確認: チャットを削除しました。')
     return redirect(url_for('chatPage'))
 
 # AnalysisController
 @app.route("/analysis")
 @login_required
-async def analysisPage():
+def analysisPage():
     user_id = current_user.id
-    graph, pie = await analysisController.analysis_result(user_id)
+    graph, pie = asyncio.run(analysisController.analysis_result(user_id))
 
     return render_template('analysis.html', graph=graph, pie=pie)
 

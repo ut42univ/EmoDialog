@@ -7,7 +7,6 @@ import matplotlib.pyplot as plt
 from io import BytesIO
 import base64
 import asyncio
-import datetime
 
 class UserController:
     def sign_up(self, username:str, password:str) -> bool:
@@ -50,7 +49,12 @@ class DiaryController:
     def __init__(self):
         self.analysisController = AnalysisController()
 
-    async def create_diary(self, user_id:int, body:str) -> None:
+    async def create_diary(self, user_id:int, body:str) -> bool:
+        is_valid = self.check_body_length(body)
+
+        if not is_valid:
+            return False
+        
         diary = Diary(user_id=user_id, body=body)
         db.session.add(diary)
         db.session.commit()
@@ -58,14 +62,27 @@ class DiaryController:
         diary_id = diary.id
         await self.analysisController.analyze_diary(diary_id)
 
-    def edit_diary(self, diary_id:int, new_body:str) -> None:
+        # return True if the diary is created successfully
+        return True
+
+    async def edit_diary(self, diary_id:int, new_body:str) -> bool:
+        is_valid = self.check_body_length(new_body)
+
+        if not is_valid:
+            return False
+        
         diary = Diary.query.get(diary_id)
         if diary:
             diary.body = new_body
             db.session.commit()
 
             diary_id = diary.id
-            self.analysisController.analyze_diary(diary_id)
+            await self.analysisController.analyze_diary(diary_id)
+
+            # return True if the diary is edited successfully
+            return True
+        else:
+            return False
 
     def delete_diary(self, diary_id:int) -> None:
         diary = Diary.query.get(diary_id)
@@ -81,6 +98,13 @@ class DiaryController:
         except:
             return False
         return False
+    
+    def check_body_length(self, body:str) -> bool:
+        if len(body) > self.max_body_length:
+            return False
+        elif len(body) == 0:
+            return False
+        return True
 
     def get_diary(self, diary_id:int) -> Diary:
         diary = Diary.query.get(diary_id)
@@ -95,11 +119,18 @@ class DiaryController:
         return diaries
 
 class ChatController:
+    max_message_length = 200
 
     def __init__(self):
         self.emotion_ai = EmotionAI()
 
-    def send_message(self, user_id:int, message:str):
+    def send_message(self, user_id:int, message:str) -> bool:
+
+        if not message:
+            return False
+        elif len(message) > self.max_message_length:
+            return False
+        
         chat = Chat(user_id=user_id, message=message, role='user')
         db.session.add(chat)
         db.session.commit()
@@ -111,6 +142,9 @@ class ChatController:
         chat_response = Chat(user_id=user_id, message=response, role='assistant')
         db.session.add(chat_response)
         db.session.commit()
+
+        # return True if the message is sent successfully
+        return True
 
     def get_user_chat(self, user_id) -> list:
         chats = Chat.query.filter_by(user_id=user_id).all()

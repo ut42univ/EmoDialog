@@ -3,14 +3,30 @@
 
 <h2 class="text-center p-3">日記を編集する</h2>
 <div class="mx-auto text-center" style="max-width: 48rem;">
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                {% if '確認' in message %}
+                    <div class="alert alert-success text-start" role="alert">
+                        {{ message }}
+                    </div>
+                {% else %}
+                    <div class="alert alert-danger text-start" role="alert">
+                        {{ message }}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
     <form method="POST" id="editDiaryForm">
         <div class="form-floating">
-            <textarea class="form-control" placeholder="日記の本文を入力" name="body" id="diaryBody" style="height: 256px;">{{ diary.body }}</textarea>
+            <textarea class="form-control" placeholder="日記の本文を入力" name="body" id="diaryBody" style="height: 256px;">{{ body }}</textarea>
             <label for="floatingTextArea">Edit diary here</label>
             <input class="btn btn-primary w-50 py-2 m-3" type="submit" value="Edit Diary" id="edit_diary">
         </div>
     </form>
 </div>
+
 {% endblock %}
 
 {% block extra_js %}

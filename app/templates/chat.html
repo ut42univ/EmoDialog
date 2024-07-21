@@ -2,6 +2,21 @@
 {% block content %}
 
 <h2 class="text-center p-3">EmotionAIと会話する</h2>
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for message in messages %}
+            {% if '確認' in message %}
+                <div class="alert alert-success text-start mx-auto" role="alert" style="max-width: 48rem;">
+                    {{ message }}
+                </div>
+            {% else %}
+                <div class="alert alert-danger text-start mx-auto" role="alert" style="max-width: 48rem;">
+                    {{ message }}
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endwith %}
 
 <div class="mx-auto" style="max-width: 48rem;">
     <div class="text-end">
