@@ -51,9 +51,7 @@ Here's why:
 * You shouldn't be doing the same tasks over and over like creating a README from scratch
 * You should implement DRY principles to the rest of your life :smile:
 
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
-
-Use the `BLANK_README.md` to get started.
+_"EmoDialog"の名前由来は，"Emo" は感情（emotion）を表し，"Dialog" は対話（dialogue）を表す言葉です．この名前は，感情を中心に据えた対話やコミュニケーションを促進するアプリケーションを示しています．感情と対話を融合させることで，ユーザーが自分の感情や思考をより深く理解し，整理する手助けをすることを意味しています．_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -61,17 +59,14 @@ Use the `BLANK_README.md` to get started.
 
 ### 技術スタック（Built With）
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+現段階で，EmoDialogは以下の技術スタックを使用して開発されています．
 
-* [![Next][Next.js]][Next-url]
-* [![React][React.js]][React-url]
+* [![Python][Python.org]][Python-url]
+* [![Flask][Flask.palletsprojects]][Flask-url]
+* [![OpenAI][openai.com]][openai-url]
+* [![SQLite][sqllite]][sqllite-url]
 * [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
 * [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
@@ -79,26 +74,43 @@ This section should list any major frameworks/libraries used to bootstrap your p
 <!-- GETTING STARTED -->
 ## はじめに（Getting Started）
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+このプロジェクトはサーバーでの実行を前提としていますが，Pythonの環境があればローカルでの実行も可能です．
+ただし，OpenAIのAPIを使用しているため，事前にAPIキーの取得が必要です．
+（※APIキーの取得にはOpenAI社へのクレジットカード情報の登録が必須です．）
+
+またデモページも用意していますので，以下のリンクからアクセスしてみてください．
+**EmoDialog(https://emodialog.live)**
+_（注意: 本ページはデモ環境のため，データベースが定期的に初期化されます．）_
+
+以下のサンプルアカウントでログインすることで，予め記録された日記や感情分析を閲覧・編集することができます．
+`ユーザー名：guest`
+`パスワード：psp4_sample`
 
 ### 導入（Installation）
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
+_ここではローカル環境でのプロジェクトの導入方法について説明します．_
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. OpenAI APIキーを取得し環境変数に設定する．参考 [OpenAI Platform](https://platform.openai.com)
+    ```sh
+    export OPENAI_API_KEY='YOUR_API_KEY'
+    ```
+2. リポジトリをクローンする
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+    git clone https://github.com/ut42univ/EmoDialog.git
    ```
-3. Install NPM packages
+3. 必要なパッケージをインストールする（仮想環境での実行を推奨）
    ```sh
-   npm install
+    pip install -r requirements.txt
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
+4. 実行する
+    ```sh
+      cd app
+      python app.py
+    ```
+5. ブラウザで以下のURLにアクセスする（デフォルトはポート5000）
+    ```sh
+    http://localhost:5000
+    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -153,3 +165,17 @@ Distributed under the MIT License. See `LICENSE` for more information.
 [Bootstrap-url]: https://getbootstrap.com
 [JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
 [JQuery-url]: https://jquery.com 
+[Python.org]: https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white
+[Python-url]: https://www.python.org/
+[Flask.palletsprojects]: https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white
+[Flask-url]: https://flask.palletsprojects.com/
+[sqllite]: https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white
+[sqllite-url]: https://www.sqlite.org/index.html
+[openai.com]: https://img.shields.io/badge/OpenAI-F2F2F2?style=for-the-badge&logo=openai&logoColor=black
+[openai-url]: https://www.openai.com/
+[Heroku.com]: https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white
+[Heroku-url]: https://www.heroku.com/
+[Google Cloud]: https://img.shields.io/badge/Google_Cloud-4285F4?style=for-the-badge&logo=google-cloud&logoColor=white
+[Google Cloud-url]: https://cloud.google.com/
+[matplotlib]: https://img.shields.io/badge/Matplotlib-3776AB?style=for-the-badge&logo=python&logoColor=white
+[matplotlib-url]: https://matplotlib.org/
