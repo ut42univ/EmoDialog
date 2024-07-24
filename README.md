@@ -103,24 +103,24 @@ _（注意: 本ページはデモ環境のため，データベースが定期�
 
 _ここではローカル環境でのプロジェクトの導入方法について説明します．_
 
-1. OpenAI APIキーを取得し環境変数に設定する．参考 [OpenAI Platform](https://platform.openai.com)
+#### 1. OpenAI APIキーを取得し環境変数に設定する．参考 [OpenAI Platform](https://platform.openai.com)
     ```sh
     export OPENAI_API_KEY='YOUR_API_KEY'
     ```
-2. リポジトリをクローンする
+#### 2. リポジトリをクローンする
    ```sh
     git clone https://github.com/ut42univ/EmoDialog.git
    ```
-3. 必要なパッケージをインストールする（仮想環境での実行を推奨）
+#### 3. 必要なパッケージをインストールする（仮想環境での実行を推奨）
    ```sh
     pip install -r requirements.txt
    ```
-4. 実行する
+#### 4. 実行する
     ```sh
       cd app
       python app.py
     ```
-5. ブラウザで以下のURLにアクセスする（デフォルトはポート5000）
+#### 5. ブラウザで以下のURLにアクセスする（デフォルトはポート5000）
     ```sh
     http://localhost:5000
     ```
@@ -133,9 +133,12 @@ _ここではローカル環境でのプロジェクトの導入方法につい�
 ## 使用方法（Usage）
 
 #### 1. ユーザー登録・ログイン
-    * ユーザー名とパスワードを入力して登録
-    * 登録済みのユーザー名とパスワードでログイン
-    https://github.com/user-attachments/assets/c3435619-9870-4cf8-b768-c7ba204b2608
+  ```
+  *ユーザー名とパスワードを入力して登録
+  *登録済みのユーザー名とパスワードでログイン
+  ```
+  ![login](https://github.com/user-attachments/assets/c3435619-9870-4cf8-b768-c7ba204b2608)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
