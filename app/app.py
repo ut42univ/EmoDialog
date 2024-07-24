@@ -86,7 +86,7 @@ def signUpPage():
         is_success = userController.sign_up(username, password)
 
         if not is_success:
-            flash('エラー: このユーザー名はすでに使用されています。')
+            flash('エラー: このユーザー名はすでに使用されているか、ユーザー名またはパスワードが空です。')
             return redirect(url_for('signUpPage'))
 
         flash('確認: ユーザー登録が完了しました。利用するにはログインしてください。')

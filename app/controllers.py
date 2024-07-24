@@ -10,6 +10,10 @@ import asyncio
 
 class UserController:
     def sign_up(self, username:str, password:str) -> bool:
+
+        # Check enmpy username and password
+        if not username or not password:
+            return False
         
         # create a new user and add it to the database if the username is unique
         try:
