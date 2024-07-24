@@ -1,3 +1,5 @@
+# README
+
 <!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
 <a id="readme-top"></a>
 <!--
@@ -33,25 +35,36 @@
   <h4 align="center">EmotionAI for the rest of us.</h4> 
   <br />
   <p align="center">
-    AI日記アプリ
+    カウンセラーAI日記アプリケーション
     <br />
-    A Personalized Diary App with Generative AI
+    A Personalized Diary App with Counselor AI
   </p>
 </div>
+
+_"EmoDialog"の名前由来は，"Emo" は感情（emotion）を表し，"Dialog" は対話（dialogue）を表す言葉です．この名前は，感情を中心に据えた対話やコミュニケーションを促進するアプリケーションを示しています．感情と対話を融合させることで，ユーザーが自分の感情や思考をより深く理解し，整理する手助けをすることを意味しています．_
 
 <!-- ABOUT THE PROJECT -->
 ## プロジェクトについて（About The Project）
 
 [![Product Name Screen Shot][product-screenshot]](https://emodialog.live)
 
-There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+EmoDialogは，文章生成AIを用いた個人向け日記アプリケーションです．
+ユーザーが日記を書くことで，AIが感情分析を行い，ユーザーに対して返答を行います．
 
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should implement DRY principles to the rest of your life :smile:
+現在は以下の機能が実装されています:
+* ユーザー登録・ログイン
+* 日記の作成・編集・削除
+* AIによる日記の感情分析
+  * 日記から推測されるその日の感情を分析
+    * 例: happy, sad, angry, etc. （ポール・エクマンの6つの基本感情に準拠）
+  * 日記から推測されるその日のクオリティをスコア化（0%~100%）
+    * 良い1日ならば高いスコア，悪い1日ならば低いスコア
+* 感情分析結果の統計の閲覧
+  * ユーザーの感情推移のグラフ表示
+  * ユーザーの感情の分布の円グラフ表示
+* チャットボット機能（AIによる返答）
 
-_"EmoDialog"の名前由来は，"Emo" は感情（emotion）を表し，"Dialog" は対話（dialogue）を表す言葉です．この名前は，感情を中心に据えた対話やコミュニケーションを促進するアプリケーションを示しています．感情と対話を融合させることで，ユーザーが自分の感情や思考をより深く理解し，整理する手助けをすることを意味しています．_
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -74,7 +87,7 @@ _"EmoDialog"の名前由来は，"Emo" は感情（emotion）を表し，"Dialog
 <!-- GETTING STARTED -->
 ## はじめに（Getting Started）
 
-このプロジェクトはサーバーでの実行を前提としていますが，Pythonの環境があればローカルでの実行も可能です．
+このプロジェクトはFlaskベースであり，サーバーでの実行を前提としていますが，Pythonの環境があればローカルでの実行も可能です．
 ただし，OpenAIのAPIを使用しているため，事前にAPIキーの取得が必要です．
 （※APIキーの取得にはOpenAI社へのクレジットカード情報の登録が必須です．）
 
@@ -119,15 +132,17 @@ _ここではローカル環境でのプロジェクトの導入方法につい�
 <!-- USAGE EXAMPLES -->
 ## 使用方法（Usage）
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
+#### 1. ユーザー登録・ログイン
+    * ユーザー名とパスワードを入力して登録
+    * 登録済みのユーザー名とパスワードでログイン
+    https://github.com/user-attachments/assets/c3435619-9870-4cf8-b768-c7ba204b2608
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LICENSE -->
 ## ライセンス（License）
 
+このプロジェクトはMITライセンスに準拠して公開しています．詳細は `LICENSE` を参照してください．
 Distributed under the MIT License. See `LICENSE` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
