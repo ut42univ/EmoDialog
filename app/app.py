@@ -108,6 +108,7 @@ def createDiaryPage():
     
     if request.method == 'POST':
         body = request.form['body']
+        # Create a diary
         is_success = asyncio.run(diaryController.create_diary(current_user.id, body))
 
         if not is_success:
@@ -127,6 +128,7 @@ def editDiaryPage(diary_id):
     
     if request.method == 'POST':
         new_body = request.form['body']
+        # Edit a diary
         is_success = asyncio.run(diaryController.edit_diary(diary_id, new_body))
 
         if not is_success:
