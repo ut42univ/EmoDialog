@@ -74,12 +74,7 @@ EmoDialogは，文章生成AIを用いた個人向け日記アプリケーショ
 
 現段階で，EmoDialogは以下の技術スタックを使用して開発されています．
 
-* [![Python][Python.org]][Python-url]
-* [![Flask][Flask.palletsprojects]][Flask-url]
-* [![OpenAI][openai.com]][openai-url]
-* [![SQLite][sqllite]][sqllite-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
+ [![Python][Python.org]][Python-url] [![Flask][Flask.palletsprojects]][Flask-url] [![OpenAI][openai.com]][openai-url] [![SQLite][sqllite]][sqllite-url] [![Vue][Vue.js]][Vue-url] [![Bootstrap][Bootstrap.com]][Bootstrap-url] 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
@@ -104,26 +99,26 @@ _（注意: 本ページはデモ環境のため，データベースが定期�
 _ここではローカル環境でのプロジェクトの導入方法について説明します．_
 
 #### 1. OpenAI APIキーを取得し環境変数に設定する．参考 [OpenAI Platform](https://platform.openai.com)
-    ```sh
-    export OPENAI_API_KEY='YOUR_API_KEY'
-    ```
+  ```sh
+  export OPENAI_API_KEY='YOUR_API_KEY'
+  ```
 #### 2. リポジトリをクローンする
-   ```sh
-    git clone https://github.com/ut42univ/EmoDialog.git
-   ```
+  ```sh
+  git clone https://github.com/ut42univ/EmoDialog.git
+  ```
 #### 3. 必要なパッケージをインストールする（仮想環境での実行を推奨）
-   ```sh
-    pip install -r requirements.txt
-   ```
+  ```sh
+  pip install -r requirements.txt
+  ```
 #### 4. 実行する
-    ```sh
-      cd app
-      python app.py
-    ```
+  ```sh
+    cd app
+    python app.py
+  ```
 #### 5. ブラウザで以下のURLにアクセスする（デフォルトはポート5000）
-    ```sh
-    http://localhost:5000
-    ```
+  ```sh
+  http://localhost:5000
+  ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -134,15 +129,15 @@ _ここではローカル環境でのプロジェクトの導入方法につい�
 
 #### ユーザー登録・ログイン
   ```
-  *ユーザー名とパスワードを入力して登録
-  *登録済みのユーザー名とパスワードでログイン
+  * ユーザー名とパスワードを入力して登録
+  * 登録済みのユーザー名とパスワードでログイン
   ```
-  ![login](https://github.com/user-attachments/assets/c3435619-9870-4cf8-b768-c7ba204b2608)
+  ![signup](https://github.com/user-attachments/assets/9283bd3f-d2aa-40e0-ae4d-0b828d0cac31)![login](https://github.com/user-attachments/assets/c3435619-9870-4cf8-b768-c7ba204b2608)
 
 #### 日記を作成する
   ```
-  *日記のタイトルと内容を入力して作成
-  *日記は1文字以上，500文字以下で作成可能
+  * 日記のタイトルと内容を入力して作成
+  * 日記は1文字以上，500文字以下で作成可能
   ```
   ![create](https://github.com/user-attachments/assets/71748723-8d23-43b4-a240-e11c65d6ea43)
 
@@ -158,17 +153,16 @@ _ここではローカル環境でのプロジェクトの導入方法につい�
   ```
   * ユーザーの感情推移のグラフ表示
   * ユーザーの感情の分布の円グラフ表示
+  * matplotlibを使用してグラフを描画
   ```
   ![analysis](https://github.com/user-attachments/assets/27f6088c-da41-4041-931e-d1001c84e191)
 
 #### チャットボット機能（AIによる返答）
   ```
-  * EmotionAIに対してメッセージを送信
-  * EmotionAIからの返答を受け取る
+  * EmotionAIとの会話を行う
   * "会話を終了する"で会話履歴を削除（復元できません）
   ```
-  ![chat](https://github.com/user-attachments/assets/d8ddc404-0bd5-4306-b07f-bc7a19386d77)
-  ![chat_delete](https://github.com/user-attachments/assets/dfe7822d-bfe2-4413-8d71-0c55ec1e5678)
+  ![chat](https://github.com/user-attachments/assets/d8ddc404-0bd5-4306-b07f-bc7a19386d77)![chat_delete](https://github.com/user-attachments/assets/dfe7822d-bfe2-4413-8d71-0c55ec1e5678)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -176,7 +170,7 @@ _ここではローカル環境でのプロジェクトの導入方法につい�
 <!-- LICENSE -->
 ## ライセンス（License）
 
-このプロジェクトはMITライセンスに準拠して公開しています．詳細は `LICENSE` を参照してください．
+このプロジェクトはMITライセンスに準拠してOSSとして公開されています．詳細は `LICENSE` を参照してください．
 Distributed under the MIT License. See `LICENSE` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -228,3 +222,5 @@ Distributed under the MIT License. See `LICENSE` for more information.
 [Google Cloud-url]: https://cloud.google.com/
 [matplotlib]: https://img.shields.io/badge/Matplotlib-3776AB?style=for-the-badge&logo=python&logoColor=white
 [matplotlib-url]: https://matplotlib.org/
+[html]: https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white
+[css]: https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white
