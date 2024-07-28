@@ -1,13 +1,16 @@
-import os
-from controllers import UserController, DiaryController, ChatController, AnalysisController
-from models import db, OperationalError
+# app.py
 from flask import Flask
 from flask_bootstrap import Bootstrap5
-from flask import render_template, request, redirect, url_for, abort, flash
-from functools import wraps
-import asyncio
-
-from flask_login import LoginManager, login_required, current_user
+from flask_sqlalchemy import SQLAlchemy
+from flask_login import LoginManager
+import os
+from views import (
+    LoginView, LogoutView, SignUpView, IndexView, CreateDiaryView, 
+    EditDiaryView, DiariesView, DiaryView, DeleteDiaryView, 
+    ChatView, DeleteChatView, AnalysisView
+)
+from models import User, db
+from sqlalchemy.exc import OperationalError
 
 # initialize app
 app = Flask(__name__)
@@ -15,6 +18,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///sample_app.db'
 app.config['SECRET_KEY'] = os.urandom(24)
 
 bootstrap = Bootstrap5(app)
+
 
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -27,178 +31,23 @@ with app.app_context():
     except OperationalError:
         pass
 
-# Controllers
-userController = UserController()
-diaryController = DiaryController()
-chatController = ChatController()
-analysisController = AnalysisController()
-
-# Decorator for checking if the user is the owner of the diary
-def diary_owner_required(f):
-    @wraps(f)
-    def decorated_function(*args, **kwargs):
-        diary_id = kwargs.get('diary_id', None)
-        if not diaryController.is_diary_owner(diary_id, current_user.id):
-            abort(403)
-        return f(*args, **kwargs)
-    return decorated_function
-
 @login_manager.user_loader
 def load_user(user_id):
-    return userController.user_load_control(user_id)
+    return User.query.get(user_id)
 
-@login_manager.unauthorized_handler
-def unauthorized():
-    return redirect(url_for('loginPage'))
+# URL routes
+app.add_url_rule('/login', view_func=LoginView.as_view('loginPage'))
+app.add_url_rule('/logout', view_func=LogoutView.as_view('logout'))
+app.add_url_rule('/signup', view_func=SignUpView.as_view('signUpPage'))
+app.add_url_rule('/', view_func=IndexView.as_view('indexPage'))
+app.add_url_rule('/create_diary', view_func=CreateDiaryView.as_view('createDiaryPage'))
+app.add_url_rule('/diaries/<int:diary_id>/edit', view_func=EditDiaryView.as_view('editDiaryPage'))
+app.add_url_rule('/diaries', view_func=DiariesView.as_view('diariesPage'))
+app.add_url_rule('/diaries/<int:diary_id>', view_func=DiaryView.as_view('diaryPage'))
+app.add_url_rule('/diaries/<int:diary_id>/delete', view_func=DeleteDiaryView.as_view('deleteDiary'))
+app.add_url_rule('/chat', view_func=ChatView.as_view('chatPage'))
+app.add_url_rule('/chat/delete', view_func=DeleteChatView.as_view('deleteChat'))
+app.add_url_rule('/analysis', view_func=AnalysisView.as_view('analysisPage'))
 
-# Unauthenticated routes
-@app.route("/login", methods=['GET', 'POST'])
-def loginPage():
-    if request.method == 'GET':
-        return render_template('login.html')
-
-    if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
-        is_success = userController.login(username, password)
-        
-        if not is_success:
-            flash('認証失敗: Userが存在しないか、Passwordが間違っています。')
-            return redirect(url_for('loginPage'))
-
-        return redirect(url_for('indexPage'))
-
-@app.route("/logout")
-@login_required
-def logout():
-    flash(f'確認: ログアウトしました。')
-    userController.logout()
-    return redirect(url_for('loginPage'))
-    
-@app.route("/signup", methods=['GET', 'POST'])
-def signUpPage():
-    if request.method == 'GET':
-        return render_template('sign_up.html')
-
-    if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
-        is_success = userController.sign_up(username, password)
-
-        if not is_success:
-            flash('エラー: このユーザー名はすでに使用されているか、ユーザー名またはパスワードが空です。')
-            return redirect(url_for('signUpPage'))
-
-        flash('確認: ユーザー登録が完了しました。利用するにはログインしてください。')
-        return redirect(url_for('loginPage'))
-
-# Authenticated routes
-@app.route("/")
-@login_required
-def indexPage():
-    username = current_user.username
-    return render_template('index.html', username=username)
-
-# DiaryController
-@app.route("/create_diary", methods=['GET', 'POST'])
-@login_required
-def createDiaryPage():
-    if request.method == 'GET':
-        return render_template('create_diary.html')
-    
-    if request.method == 'POST':
-        body = request.form['body']
-        # Create a diary
-        is_success = asyncio.run(diaryController.create_diary(current_user.id, body))
-
-        if not is_success:
-            flash('エラー: 日記本文は1字以上500文字以内で入力してください。')
-            return render_template('create_diary.html', body=body)
-        flash('確認: 日記を作成しました。')
-        return redirect(url_for('diariesPage'))
-
-@app.route("/diaries/<int:diary_id>/edit", methods=['GET', 'POST'])
-@login_required
-@diary_owner_required
-def editDiaryPage(diary_id):
-    if request.method == 'GET':
-        diary = diaryController.get_diary(diary_id)
-        body = diary.body
-        return render_template('edit_diary.html', body=body)
-    
-    if request.method == 'POST':
-        new_body = request.form['body']
-        # Edit a diary
-        is_success = asyncio.run(diaryController.edit_diary(diary_id, new_body))
-
-        if not is_success:
-            flash('エラー: 日記本文は1字以上500文字以内で入力してください。')
-            return render_template('edit_diary.html', body=new_body)
-        flash(f'確認: 日記を編集しました。（日記ID: {diary_id}）')
-        return redirect(url_for('diariesPage'))
-
-@app.route("/diaries")
-@login_required
-def diariesPage():
-    diaries = diaryController.get_user_diaries(current_user.id)
-    if not diaries:
-        flash('警告: 日記が記録されていません。')
-    return render_template('diaries.html', diaries=diaries)
-
-@app.route("/diaries/<int:diary_id>")
-@login_required
-@diary_owner_required
-def diaryPage(diary_id):
-    diary = diaryController.get_diary(diary_id)
-    return render_template('diary.html', diary=diary)
-
-@app.route("/diaries/<int:diary_id>/delete")
-@login_required
-@diary_owner_required
-def deleteDiary(diary_id):
-    diaryController.delete_diary(diary_id)
-    flash(f'確認: 日記を削除しました。（日記ID: {diary_id}）')
-    return redirect(url_for('diariesPage'))
-
-# ChatController
-@app.route("/chat", methods=['GET', 'POST'])
-@login_required
-def chatPage():
-    user_id = current_user.id
-    if request.method == 'GET':
-        chats = chatController.get_user_chat(user_id)
-        return render_template('chat.html', user_id=user_id, chats=chats)
-    
-    if request.method == 'POST':
-        message = request.form['message']
-        is_success = chatController.send_message(user_id, message)
-
-        if not is_success:
-            flash('エラー: メッセージは1字以上200文字以内で入力してください。')
-        return redirect(url_for('chatPage'))
-
-@app.route("/chat/delete")
-@login_required
-def deleteChat():
-    user_id = current_user.id
-    chatController.delete_chat(user_id)
-    flash('確認: チャットを削除しました。')
-    return redirect(url_for('chatPage'))
-
-# AnalysisController
-@app.route("/analysis")
-@login_required
-def analysisPage():
-    user_id = current_user.id
-    diaries = diaryController.get_user_diaries(user_id)
-
-    if not diaries:
-        flash('警告: 日記が記録されていないため、感情分析結果を表示できません。')
-
-    graph, pie = asyncio.run(analysisController.analysis_result(user_id))
-
-    return render_template('analysis.html', graph=graph, pie=pie)
-
-
-if __name__ == ('__main__'):
+if __name__ == '__main__':
     app.run(debug=True)
