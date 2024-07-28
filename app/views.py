@@ -23,10 +23,10 @@ def diary_owner_required(f):
     return decorated_function
 
 class LoginView(MethodView):
-    def get(self):
+    def get(self) -> str:
         return render_template('login.html')
 
-    def post(self):
+    def post(self) -> str:
         username = request.form['username']
         password = request.form['password']
         is_success = userController.login(username, password)
@@ -39,16 +39,16 @@ class LoginView(MethodView):
 
 class LogoutView(MethodView):
     @login_required
-    def get(self):
+    def get(self) -> str:
         flash(f'確認: ログアウトしました。')
         userController.logout()
         return redirect(url_for('loginPage'))
 
 class SignUpView(MethodView):
-    def get(self):
+    def get(self)  -> str:
         return render_template('sign_up.html')
 
-    def post(self):
+    def post(self) -> str:
         username = request.form['username']
         password = request.form['password']
         is_success = userController.sign_up(username, password)
@@ -62,17 +62,17 @@ class SignUpView(MethodView):
 
 class IndexView(MethodView):
     @login_required
-    def get(self):
+    def get(self) -> str:
         username = current_user.username
         return render_template('index.html', username=username)
 
 class CreateDiaryView(MethodView):
     @login_required
-    def get(self):
+    def get(self) -> str:
         return render_template('create_diary.html')
     
     @login_required
-    def post(self):
+    def post(self) -> str:
         body = request.form['body']
         is_success = asyncio.run(diaryController.create_diary(current_user.id, body))
 
@@ -85,14 +85,14 @@ class CreateDiaryView(MethodView):
 class EditDiaryView(MethodView):
     @login_required
     @diary_owner_required
-    def get(self, diary_id):
+    def get(self, diary_id:int) -> str:
         diary = diaryController.get_diary(diary_id)
         body = diary.body
         return render_template('edit_diary.html', body=body)
     
     @login_required
     @diary_owner_required
-    def post(self, diary_id):
+    def post(self, diary_id:int) -> str:
         new_body = request.form['body']
         is_success = asyncio.run(diaryController.edit_diary(diary_id, new_body))
 
@@ -104,7 +104,7 @@ class EditDiaryView(MethodView):
 
 class DiariesView(MethodView):
     @login_required
-    def get(self):
+    def get(self) -> str:
         diaries = diaryController.get_user_diaries(current_user.id)
         if not diaries:
             flash('警告: 日記が記録されていません。')
@@ -113,27 +113,27 @@ class DiariesView(MethodView):
 class DiaryView(MethodView):
     @login_required
     @diary_owner_required
-    def get(self, diary_id):
+    def get(self, diary_id:int) -> str:
         diary = diaryController.get_diary(diary_id)
         return render_template('diary.html', diary=diary)
 
 class DeleteDiaryView(MethodView):
     @login_required
     @diary_owner_required
-    def get(self, diary_id):
+    def get(self, diary_id:int) -> str:
         diaryController.delete_diary(diary_id)
         flash(f'確認: 日記を削除しました。（日記ID: {diary_id}）')
         return redirect(url_for('diariesPage'))
 
 class ChatView(MethodView):
     @login_required
-    def get(self):
+    def get(self) -> str:
         user_id = current_user.id
         chats = chatController.get_user_chat(user_id)
         return render_template('chat.html', user_id=user_id, chats=chats)
     
     @login_required
-    def post(self):
+    def post(self) -> str:
         user_id = current_user.id
         message = request.form['message']
         is_success = chatController.send_message(user_id, message)
@@ -144,7 +144,7 @@ class ChatView(MethodView):
 
 class DeleteChatView(MethodView):
     @login_required
-    def get(self):
+    def get(self) -> str:
         user_id = current_user.id
         chatController.delete_chat(user_id)
         flash('確認: チャットを削除しました。')
@@ -152,7 +152,7 @@ class DeleteChatView(MethodView):
 
 class AnalysisView(MethodView):
     @login_required
-    def get(self):
+    def get(self) -> str:
         user_id = current_user.id
         diaries = diaryController.get_user_diaries(user_id)
 

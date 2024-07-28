@@ -42,7 +42,7 @@ class Chat(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     role = db.Column(db.String(30), nullable=True)
-    message = db.Column(db.Text, nullable=True)
+    message = db.Column(db.Text, nullable=True) # Text Type: unlimited length string (SQLAlchemy)
     time = db.Column(db.DateTime, default=lambda: datetime.now(pytz.timezone('Asia/Tokyo')))
 
 class EmotionAI():

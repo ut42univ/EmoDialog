@@ -50,7 +50,7 @@ class UserController:
 class DiaryController:
     max_body_length = 500
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.analysisController = AnalysisController()
 
     async def create_diary(self, user_id:int, body:str) -> bool:
@@ -125,7 +125,7 @@ class DiaryController:
 class ChatController:
     max_message_length = 200
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.emotion_ai = EmotionAI()
 
     def send_message(self, user_id:int, message:str) -> bool:
@@ -150,11 +150,11 @@ class ChatController:
         # return True if the message is sent successfully
         return True
 
-    def get_user_chat(self, user_id) -> list:
+    def get_user_chat(self, user_id:int) -> list:
         chats = Chat.query.filter_by(user_id=user_id).all()
         return chats
 
-    def delete_chat(self, user_id):
+    def delete_chat(self, user_id:int) -> None:
         chats = Chat.query.filter_by(user_id=user_id).all()
         if chats:
             for chat in chats:
@@ -163,10 +163,10 @@ class ChatController:
 
 class AnalysisController:
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.emotion_ai = EmotionAI()
 
-    async def analyze_diary(self, diary_id):
+    async def analyze_diary(self, diary_id:int) -> None:
         diary = Diary.query.get(diary_id)
         response, emotion, degree = await self.emotion_ai.analyze_diary(diary.body)
         diary.response = response
@@ -174,7 +174,7 @@ class AnalysisController:
         diary.emotion_degree = degree
         db.session.commit()
 
-    async def analysis_result(self, user_id):
+    async def analysis_result(self, user_id:int) -> tuple[str, str]:
 
         async def create_graph():
             # create graph
