@@ -1,0 +1,94 @@
+<mxfile host="65bd71144e" scale="5" border="10">
+    <diagram id="6NRBU0wVSXhq6vlPgpqr" name="ページ1">
+        <mxGraphModel dx="1363" dy="1156" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#ffffff" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="43" value="&lt;h1&gt;シナリオ&lt;/h1&gt;&lt;p&gt;ユーザーのAliceは2024年7月1日にユーザーの新規登録を行い，2024年7月4日に 「今日はとても楽しかった。」という内容の日記を作成した．2024年7月5日には，「今日は悲しい気分だった。」という内容の日記を作成した．&lt;/p&gt;&lt;p&gt;Aliceは2024年7月6日に「こんにちは、元気ですか？」という内容のチャットメッセージを送信し，EmotionAIからのレスポンスとして「こんにちは！私は元気です．あなたは？」という内容を得る．&lt;/p&gt;" style="text;html=1;strokeColor=default;fillColor=#F2F2F2;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;strokeWidth=2;gradientColor=none;fillStyle=auto;" parent="1" vertex="1">
+                    <mxGeometry x="20" y="10" width="650" height="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="75" value="Alice:ユーザー" style="swimlane;fontStyle=5;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+                    <mxGeometry x="90" y="240" width="255" height="98" as="geometry"/>
+                </mxCell>
+                <mxCell id="76" value="- id: 1&#10;- username: Alice&#10;- password: hashed_password" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="75">
+                    <mxGeometry y="26" width="255" height="64" as="geometry"/>
+                </mxCell>
+                <mxCell id="77" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="75">
+                    <mxGeometry y="90" width="255" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="78" value="日記1:日記" style="swimlane;fontStyle=5;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+                    <mxGeometry x="477" y="210" width="255" height="158" as="geometry"/>
+                </mxCell>
+                <mxCell id="79" value="- id: 1&#10;- user_id: 1&#10;- create_at: 2024-07-04&#10;- update_at: 2024-07-04&#10;- body: &quot;今日はとても楽しかった。&quot;&#10;- emotion: happy&#10;- emotion_degree: 80" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="78">
+                    <mxGeometry y="26" width="255" height="124" as="geometry"/>
+                </mxCell>
+                <mxCell id="80" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="78">
+                    <mxGeometry y="150" width="255" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="82" value="ユーザーチャット1:チャット" style="swimlane;fontStyle=5;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;labelBackgroundColor=none;labelBorderColor=none;fontColor=default;html=0;" vertex="1" parent="1">
+                    <mxGeometry x="90" y="660" width="255" height="138" as="geometry"/>
+                </mxCell>
+                <mxCell id="83" value="- id: 1&#10;- user_id: 1&#10;- role: user&#10;- message: &quot;こんにちは、元気ですか？&quot;&#10;- time: 2024-07-06" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;labelBackgroundColor=none;labelBorderColor=none;fontColor=default;html=0;" vertex="1" parent="82">
+                    <mxGeometry y="26" width="255" height="104" as="geometry"/>
+                </mxCell>
+                <mxCell id="84" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;labelBackgroundColor=none;labelBorderColor=none;fontColor=default;html=0;" vertex="1" parent="82">
+                    <mxGeometry y="130" width="255" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="85" value="日記2:日記" style="swimlane;fontStyle=5;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+                    <mxGeometry x="477" y="430" width="255" height="158" as="geometry"/>
+                </mxCell>
+                <mxCell id="86" value="- id: 2&#10;- user_id: 1&#10;- create_at: 2024-07-05&#10;- update_at: 2024-07-05&#10;- body: &quot;今日は悲しい気分だった。&quot;&#10;- emotion: sad&#10;- emotion_degree: 20" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="85">
+                    <mxGeometry y="26" width="255" height="124" as="geometry"/>
+                </mxCell>
+                <mxCell id="87" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="85">
+                    <mxGeometry y="150" width="255" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="88" value="EmotionAIチャット1:チャット" style="swimlane;fontStyle=5;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;labelBackgroundColor=none;labelBorderColor=none;fontColor=default;html=0;" vertex="1" parent="1">
+                    <mxGeometry x="480" y="660" width="255" height="138" as="geometry"/>
+                </mxCell>
+                <mxCell id="89" value="- id: 2&#10;- user_id: 1&#10;- role: assistant&#10;- message: &quot;こんにちは！私は元気です．&#10;                    あなたは？&quot;&#10;- time: 2024-07-06" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;labelBackgroundColor=none;labelBorderColor=none;fontColor=default;html=0;" vertex="1" parent="88">
+                    <mxGeometry y="26" width="255" height="104" as="geometry"/>
+                </mxCell>
+                <mxCell id="90" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;labelBackgroundColor=none;labelBorderColor=none;fontColor=default;html=0;" vertex="1" parent="88">
+                    <mxGeometry y="130" width="255" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="91" value="感情分析1:感情分析" style="swimlane;fontStyle=5;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;labelBackgroundColor=none;labelBorderColor=none;fontColor=default;html=0;" vertex="1" parent="1">
+                    <mxGeometry x="900" y="240" width="255" height="118" as="geometry"/>
+                </mxCell>
+                <mxCell id="92" value="- emotion: happy&#10;- emotion_degree: 80&#10;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;labelBackgroundColor=none;labelBorderColor=none;fontColor=default;html=0;" vertex="1" parent="91">
+                    <mxGeometry y="26" width="255" height="84" as="geometry"/>
+                </mxCell>
+                <mxCell id="93" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;labelBackgroundColor=none;labelBorderColor=none;fontColor=default;html=0;" vertex="1" parent="91">
+                    <mxGeometry y="110" width="255" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="94" value="感情分析2:感情分析" style="swimlane;fontStyle=5;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;labelBackgroundColor=none;labelBorderColor=none;fontColor=default;html=0;" vertex="1" parent="1">
+                    <mxGeometry x="900" y="450" width="255" height="118" as="geometry"/>
+                </mxCell>
+                <mxCell id="95" value="- emotion: sad&#10;- emotion_degree: 20&#10;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;labelBackgroundColor=none;labelBorderColor=none;fontColor=default;html=0;" vertex="1" parent="94">
+                    <mxGeometry y="26" width="255" height="84" as="geometry"/>
+                </mxCell>
+                <mxCell id="96" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;labelBackgroundColor=none;labelBorderColor=none;fontColor=default;html=0;" vertex="1" parent="94">
+                    <mxGeometry y="110" width="255" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="98" style="edgeStyle=none;html=1;endArrow=none;endFill=0;" edge="1" parent="1" source="76" target="79">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="100" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="76" target="86">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="101" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="79" target="91">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="102" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="86" target="95">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="104" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=none;endFill=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="75" target="82">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="105" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="83" target="89">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
